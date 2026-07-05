@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { TreeDeciduous, CheckCircle, Phone, Calendar } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 
 const TreeTrimming = () => {
   const services = [
@@ -19,7 +20,7 @@ const TreeTrimming = () => {
     },
     {
       title: "Hazardous Branch Removal",
-      description: "Safe removal of weak or overextended branches over homes and driveways, following ANSI Z133 safety standards for essential peace of mind.",
+      description: "Safe removal of weak or overextended branches over homes and driveways, using professional techniques for essential peace of mind.",
       icon: CheckCircle
     },
     {
@@ -41,14 +42,14 @@ const TreeTrimming = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              ISA-Standard Tree Trimming & Pruning in Houston, TX
+              Professional Tree Trimming & Pruning in Houston, TX
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Expert tree trimming services that adhere to ANSI A300 standards, ensuring every cut enhances the health, safety, and beauty of your trees.
+              Expert tree trimming services that enhance the health, safety, and beauty of your trees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="default" asChild>
-                <a href="tel:+11234567890">
+                <a href={`tel:${BUSINESS.phoneTel}`}>
                   <Phone className="mr-2 h-5 w-5" />
                   Get Free Quote
                 </a>
@@ -73,7 +74,7 @@ const TreeTrimming = () => {
                 In the sprawling Houston metro area, our trees are a vital shield against the Texas sun and a cornerstone of our property values. From the majestic live oaks in Memorial Villages and River Oaks to the tall pines of The Woodlands and Kingwood, these natural assets require professional care to thrive. Unmaintained trees can quickly become a liability, especially given Houston's propensity for severe thunderstorms and hurricanes.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                At <CompanyName />, our ISA Certified Arborists provide expert tree trimming and pruning services that adhere to the highest industry standards. All our work is performed in strict accordance with ANSI A300 standards, the nationally accepted best practices for tree care, ensuring every cut enhances the health, safety, and beauty of your trees.
+                At <CompanyName />, our experienced crew provides expert tree trimming and pruning services that follow industry best practices. Every cut is made with your tree's health, safety, and appearance in mind, ensuring lasting results for your Houston property.
               </p>
             </div>
           </div>
@@ -84,9 +85,9 @@ const TreeTrimming = () => {
       <section className="section-padding bg-muted/30">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our ANSI A300 Standard Pruning Services for Houston Trees</h2>
+            <h2 className="text-3xl font-bold mb-4">Our Professional Pruning Services for Houston Trees</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Proper pruning is a science that respects a tree's biology. Our arborists understand the unique needs of species common to Southeast Texas and are trained to make precise, beneficial cuts.
+              Proper pruning respects a tree's biology. Our experienced crew understands the unique needs of species common to Southeast Texas and is trained to make precise, beneficial cuts.
             </p>
           </div>
 
@@ -114,10 +115,10 @@ const TreeTrimming = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">Why Choose a Certified Arborist for Your Houston Property?</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Why Choose an Experienced Tree Care Team?</h2>
             <div className="prose prose-lg max-w-none text-center">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Hiring an ISA Certified Arborist ensures a knowledgeable professional is caring for your landscape. We are dedicated to the health of Houston's urban canopy and understand the local challenges, from our heavy gumbo clay soil to the specific pests that affect our trees. Our commitment to safety and the ANSI A300 standards guarantees your trees receive the best possible care.
+                With {BUSINESS.yearsExperience} years serving Houston, we understand the local challenges, from heavy clay soil to the specific pests that affect our trees. Our crew is dedicated to the health of Houston's urban canopy and committed to delivering safe, quality work on every property.
               </p>
             </div>
           </div>

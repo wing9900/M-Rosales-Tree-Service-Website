@@ -84,7 +84,7 @@ const Blog = () => {
       excerpt: "",
       date: "2025-03-10",
       readTime: "4 min read",
-      author: "Certified Arborist",
+      author: "M Rosales Tree Service Team",
       category: "Tree Health",
       content: [
         {
@@ -177,7 +177,7 @@ const Blog = () => {
         },
         {
           type: "paragraph",
-          text: "If you notice any of these signs, don't attempt a DIY diagnosis. A Certified Arborist has the training and experience to accurately assess the tree's health, identify the root cause of the problem, and recommend a course of action—whether it's targeted <a href='/services/tree-trimming'><strong>pruning</strong></a>, <a href='/services/health-management'><strong>treatment</strong></a>, or, if necessary, <a href='/services/tree-removal'><strong>safe tree removal</strong></a>."
+          text: "If you notice any of these signs, don't attempt a DIY diagnosis. A tree care professional has the training and experience to accurately assess the tree's health, identify the root cause of the problem, and recommend a course of action, whether it's targeted <a href='/services/tree-trimming'><strong>pruning</strong></a>, <a href='/services/health-management'><strong>treatment</strong></a>, or, if necessary, <a href='/services/tree-removal'><strong>safe tree removal</strong></a>."
         },
         {
           type: "paragraph",
@@ -221,7 +221,7 @@ const Blog = () => {
   };
 
   return (
-    <Layout hideCTA={true}>
+    <Layout>
       {/* SEO Meta Tags */}
       <div className="hidden">
         <h1><a href='/areas/houston'><strong>Houston</strong></a> Tree Service Blog - Expert Tree Care Tips & Insights</h1>
@@ -294,7 +294,7 @@ const Blog = () => {
             Need Professional Tree Care?
           </h2>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Our certified arborists are ready to help with all your tree care needs in <a href='/areas/houston'><strong>Houston</strong></a> and surrounding areas.
+            Our experienced crew is ready to help with all your tree care needs in <a href='/areas/houston'><strong>Houston</strong></a> and surrounding areas.
           </p>
           <Link to="/contact">
             <Button size="lg" className="shadow-md hover:shadow-lg">

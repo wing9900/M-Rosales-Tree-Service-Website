@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { HelpCircle, Phone, Calendar } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 
 const FAQSection = () => {
   const faqs = [
@@ -19,12 +20,12 @@ const FAQSection = () => {
       answer: "Yes! We offer 24/7 emergency tree services for storm damage, fallen trees, and hazardous situations. Our emergency response team can secure your property and remove dangerous trees or branches any time of day or night."
     },
     {
-      question: "Are you licensed and insured?",
-      answer: "Absolutely. We are fully licensed by the state of Texas and carry comprehensive liability insurance and workers' compensation coverage. We provide proof of insurance before starting any work and all our arborists are ISA certified."
+      question: "Why should I choose M Rosales Tree Service?",
+      answer: `With ${BUSINESS.yearsExperience} years of experience and a ${BUSINESS.googleRating}-star rating, our customers trust us for prompt, professional tree care. ${BUSINESS.ownerName} and his crew are known for competitive pricing, clear communication, and leaving every job site clean. Many of our customers have used us for years and recommend us to their neighbors.`
     },
     {
       question: "What's the difference between tree trimming and pruning?",
-      answer: "While often used interchangeably, trimming typically refers to cutting overgrown branches for aesthetic purposes, while pruning is the selective removal of specific branches for tree health, safety, and structure. Our certified arborists use proper pruning techniques to promote healthy growth."
+      answer: "While often used interchangeably, trimming typically refers to cutting overgrown branches for aesthetic purposes, while pruning is the selective removal of specific branches for tree health, safety, and structure. Our experienced crew uses proper techniques to promote healthy growth."
     },
     {
       question: "How often should trees be trimmed?",
@@ -35,8 +36,8 @@ const FAQSection = () => {
       answer: "Yes, complete cleanup is included in all our services. We remove all branches, logs, and debris from your property and leave your yard cleaner than we found it. Stump grinding debris can be removed or left for natural decomposition based on your preference."
     },
     {
-      question: "Can you help with insurance claims for storm damage?",
-      answer: "Yes, we work with homeowners' insurance companies regularly and can provide detailed documentation, photos, and estimates to support your claim. We understand the claims process and can help ensure you receive fair compensation for storm damage."
+      question: "Can you help with insurance questions after storm damage?",
+      answer: "After storm damage work, we can provide documentation of what was removed and photos of the job site. If you have insurance questions, we're happy to explain the work we performed so you have clear information for your records."
     },
     {
       question: "What areas do you service?",
@@ -94,13 +95,13 @@ const FAQSection = () => {
               consultation for your specific tree care needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" asChild>
-                <a href="tel:+11234567890">
+              <Button variant="cta" size="lg" className="shadow-[0_4px_8px_rgba(0,0,0,0.3)] [&_svg]:!h-5 [&_svg]:!w-5" asChild>
+                <a href={`tel:${BUSINESS.phoneTel}`}>
                   <Phone className="h-5 w-5" />
                   Call Now for Answers
                 </a>
               </Button>
-              <Button variant="secondary" size="lg" asChild>
+              <Button variant="cta" size="lg" className="shadow-[0_4px_8px_rgba(0,0,0,0.3)] [&_svg]:!h-5 [&_svg]:!w-5" asChild>
                 <Link to="/contact">
                   <Calendar className="h-5 w-5" />
                   Schedule Free Consultation

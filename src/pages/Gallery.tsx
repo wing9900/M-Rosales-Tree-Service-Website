@@ -7,12 +7,24 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { ArrowLeft, Eye, X, ChevronLeft, ChevronRight, Image as ImageIcon, Calendar, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { BUSINESS } from "@/lib/business";
+import { STUMP_GRINDING_JOB, TREE_REMOVAL_JOBS } from "@/lib/galleryImages";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
 
   const galleryImages = [
+    ...TREE_REMOVAL_JOBS,
+    {
+      id: 120,
+      title: STUMP_GRINDING_JOB.title,
+      category: STUMP_GRINDING_JOB.category,
+      location: STUMP_GRINDING_JOB.location,
+      image: STUMP_GRINDING_JOB.image,
+      description: STUMP_GRINDING_JOB.description,
+      imageClassName: STUMP_GRINDING_JOB.imageClassName,
+    },
     {
       id: 1,
       title: "Professional Lot Clearing",
@@ -54,14 +66,6 @@ const Gallery = () => {
       description: "Expert care establishing a young tree and maximizing its odds of success in a residential landscape setting"
     },
     {
-      id: 6,
-      title: "Lawn Fertilization",
-      category: "Lawn Care",
-      location: "Pasadena, TX",
-      image: "/assets/379f6253-3016-4f42-acaf-a587854ce122.png",
-      description: "Customized fertilization programs providing key nutrients to promote lush, green growth and build resilience against our hot summers."
-    },
-    {
       id: 3,
       title: "Vista Pruning",
       category: "Tree Pruning",
@@ -87,13 +91,8 @@ const Gallery = () => {
     : galleryImages.filter(img => img.category === selectedFilter);
 
   const activeImage = selectedImage !== null ? filteredImages[selectedImage] : null;
-  const overlayPaddingClasses =
-    activeImage && activeImage.id === 6
-      ? "pt-8 pb-16 sm:pt-10 sm:pb-8"
-      : "pt-8 pb-16";
-
-  const overlayContentOffsetClasses =
-    activeImage && activeImage.id === 6 ? "mb-[13%] sm:mb-0" : "mb-[13%] sm:mb-0";
+  const overlayPaddingClasses = "pt-8 pb-16";
+  const overlayContentOffsetClasses = "mb-[13%] sm:mb-0";
 
   const openModal = (index: number) => {
     setSelectedImage(index);
@@ -114,11 +113,11 @@ const Gallery = () => {
   };
 
   return (
-    <Layout hideCTA={true}>
+    <Layout>
       {/* SEO Meta Tags */}
       <div className="hidden">
         <h1>Houston Tree Service Gallery - Professional Tree Care Results</h1>
-        <meta name="description" content="View our professional tree service work in Houston, Sugar Land, The Woodlands, and surrounding areas. See real results from our certified arborists." />
+        <meta name="description" content="View professional tree removal, trimming, and lot clearing work by M Rosales Tree Service throughout Houston and surrounding areas." />
       </div>
       
       <div className="container-custom section-padding">
@@ -166,7 +165,7 @@ const Gallery = () => {
                 <OptimizedImage
                   src={image.image}
                   alt={`${image.title} - ${image.description}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${"imageClassName" in image && image.imageClassName ? image.imageClassName : ""}`}
                   lazy={true}
                   aspectRatio="1/1"
                 />
@@ -256,7 +255,7 @@ const Gallery = () => {
               <div className="text-sm text-muted-foreground">Projects Completed</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">27+</div>
+              <div className="text-3xl font-bold text-primary mb-2">{BUSINESS.yearsExperience}</div>
               <div className="text-sm text-muted-foreground">Years Experience</div>
             </div>
             <div>
@@ -281,7 +280,7 @@ const Gallery = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="shadow-md hover:shadow-lg hover:bg-primary/80 [&_svg]:!h-5 [&_svg]:!w-5" asChild>
-              <a href="tel:+11234567890">
+              <a href={`tel:${BUSINESS.phoneTel}`}>
                 <Phone />
                 Call Now
               </a>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Axe, Shield, Settings, FileText, Recycle, Phone, Calendar } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 
 const TreeRemoval = () => {
   const services = [
@@ -18,8 +19,8 @@ const TreeRemoval = () => {
       icon: Settings
     },
     {
-      title: "Insurance Claim Support",
-      description: "Extensive experience working with insurance companies, providing prompt professional documentation and assessment to help streamline your claim.",
+      title: "Complete Debris Cleanup",
+      description: "Every job includes thorough cleanup. Limbs, logs, and debris are chipped and hauled away so your property is left neat and ready to enjoy.",
       icon: FileText
     },
     {
@@ -41,14 +42,14 @@ const TreeRemoval = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Professional Tree Removal in Houston Adhering to ANSI Z133 Standards
+              Professional Tree Removal in Houston
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Safe and efficient tree removal throughout Houston, Katy, Sugar Land, and all of Harris County. Operations executed in full compliance with ANSI Z133 safety standards.
+              Safe and efficient tree removal throughout Houston, Katy, Sugar Land, and all of Harris County. Every job is planned and executed with strict safety protocols.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="default" asChild>
-                <a href="tel:+11234567890">
+                <a href={`tel:${BUSINESS.phoneTel}`}>
                   <Phone className="mr-2 h-5 w-5" />
                   Get Free Estimate
                 </a>
@@ -70,10 +71,10 @@ const TreeRemoval = () => {
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                While our goal is always to preserve healthy trees, removal is often the only responsible choice to protect your home and family. A dead, diseased, or storm-damaged tree is a significant threat, especially in the Greater Houston area where severe weather can strike with little warning. Tree removal is the most hazardous aspect of arboriculture and demands qualified, insured professionals.
+                While our goal is always to preserve healthy trees, removal is sometimes the only responsible choice to protect your home and family. A dead, diseased, or storm-damaged tree is a significant threat, especially in the Greater Houston area where severe weather can strike with little warning. Tree removal is the most hazardous aspect of arboriculture and demands an experienced, professional crew.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                <CompanyName /> specializes in safe and efficient tree removal throughout Houston, Katy, Sugar Land, and all of Harris County. Our operations are meticulously planned and executed in full compliance with ANSI Z133 safety standards, the industry's benchmark for safety, ensuring your project is completed without incident.
+                <CompanyName /> specializes in safe and efficient tree removal throughout Houston, Katy, Sugar Land, and all of Harris County. Our operations are meticulously planned with professional rigging techniques and strict safety protocols, ensuring your project is completed without incident.
               </p>
             </div>
           </div>
@@ -117,7 +118,7 @@ const TreeRemoval = () => {
             <h2 className="text-3xl font-bold mb-8">A Culture of Safety for Houston Homeowners</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Every member of our team is thoroughly trained in ANSI Z133 safety protocols. We conduct a detailed job site safety analysis before any work begins to identify all potential hazards. This unwavering commitment to safety protects our crew, your family, and your property.
+                Every member of our team follows strict safety protocols on every job. We conduct a detailed job site safety analysis before any work begins to identify all potential hazards. This unwavering commitment to safety protects our crew, your family, and your property.
               </p>
             </div>
           </div>

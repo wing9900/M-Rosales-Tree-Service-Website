@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Construction, MapPin, TreePine, Truck, Mountain, Phone, Calendar } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 
 const LandClearing = () => {
   const services = [
@@ -14,7 +15,7 @@ const LandClearing = () => {
     },
     {
       title: "Selective Clearing & Preservation", 
-      description: "In line with ANSI A300 standards, our arborists help identify high-value trees to preserve, carefully clearing around them while protecting critical root zones.",
+      description: "Our experienced crew helps identify valuable trees to preserve, carefully clearing around them while protecting critical root zones.",
       icon: TreePine
     },
     {
@@ -41,14 +42,14 @@ const LandClearing = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Professional Land & Lot Clearing in Houston ANSI A300 Compliant
+              Professional Land & Lot Clearing in Houston
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive land and lot clearing services for residential and commercial clients. We merge heavy-duty efficiency with the precision of ISA Certified Arborists.
+              Comprehensive land and lot clearing services for residential and commercial clients. We combine heavy-duty efficiency with careful, professional tree work.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="default" asChild>
-                <a href="tel:+11234567890">
+                <a href={`tel:${BUSINESS.phoneTel}`}>
                   <Phone className="mr-2 h-5 w-5" />
                   Get Project Quote
                 </a>
@@ -73,7 +74,7 @@ const LandClearing = () => {
                 Whether you're preparing a site for a new custom home in a developing area or reclaiming an overgrown part of your property, professional land clearing is the crucial first step. Clearing land in the Houston area requires powerful equipment, a strategic plan, and a deep understanding of how to manage our region's unique vegetation and soil.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                <CompanyName /> offers comprehensive land and lot clearing services for residential and commercial clients. We merge heavy-duty efficiency with the precision of ISA Certified Arborists to deliver a clean, build-ready site.
+                <CompanyName /> offers comprehensive land and lot clearing services for residential and commercial clients. We combine heavy-duty efficiency with the skill of our experienced crew to deliver a clean, build-ready site.
               </p>
             </div>
           </div>
@@ -117,7 +118,7 @@ const LandClearing = () => {
             <h2 className="text-3xl font-bold mb-8">The Right Equipment and Expertise for Your Houston Project</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                From dense undergrowth in Montgomery County to urban infill lots inside the Loop, our team has the experience and machinery to execute your land clearing project on time and on budget. We are fully insured and committed to operating safely and responsibly.
+                From dense undergrowth in Montgomery County to urban infill lots inside the Loop, our team has the experience and machinery to execute your land clearing project on time and on budget. We are committed to operating safely and responsibly on every job site.
               </p>
             </div>
             
@@ -142,7 +143,7 @@ const LandClearing = () => {
                     </div>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Tree Preservation</h3>
-                  <p className="text-muted-foreground text-sm">Expert arborists protect valuable trees</p>
+                  <p className="text-muted-foreground text-sm">Experienced crew protects valuable trees</p>
                 </CardContent>
               </Card>
               

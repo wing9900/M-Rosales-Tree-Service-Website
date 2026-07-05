@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-const DEFAULT_BUSINESS_NAME = "Local Tree Services";
-const TITLE_SUFFIX = "TruAido Demo";
-const DEFAULT_TITLE = "Professional Tree Services in Houston | Local Tree Services";
+const DEFAULT_BUSINESS_NAME = "M Rosales Tree Service";
+const TITLE_SUFFIX = "Houston Tree Care";
+const DEFAULT_TITLE = "M Rosales Tree Service | Professional Tree Care in Houston, TX";
 const COMPANY_STORAGE_KEY = "ghl_company";
 
 type BusinessNameContextType = {
@@ -64,25 +64,6 @@ export function BusinessNameProvider({ children }: { children: React.ReactNode }
     return () => {
       document.title = DEFAULT_TITLE;
     };
-  }, [businessName, isFromUrl]);
-
-  // GHL Web Call: pass metadata to AI Voice Agent (with 1.5s retry for slow widget load)
-  useEffect(() => {
-    if (!isFromUrl) return;
-
-    const setMetadata = () => {
-      if (typeof window !== "undefined" && (window as unknown as { ghlWebCall?: { setMetadata: (m: object) => void } }).ghlWebCall?.setMetadata) {
-        try {
-          (window as unknown as { ghlWebCall: { setMetadata: (m: object) => void } }).ghlWebCall.setMetadata({ business_name: businessName });
-        } catch (e) {
-          console.warn("[company] GHL setMetadata error:", e);
-        }
-      }
-    };
-
-    setMetadata();
-    const retryId = setTimeout(setMetadata, 1500);
-    return () => clearTimeout(retryId);
   }, [businessName, isFromUrl]);
 
   const value = useMemo(() => ({ businessName, isFromUrl }), [businessName, isFromUrl]);

@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { Link } from "react-router-dom";
-import { TreePine, Zap, Stethoscope, Axe, TreeDeciduous, Construction, Cog } from "lucide-react";
+import { TreePine, Zap, Stethoscope, Axe, TreeDeciduous, Construction, Cog, Phone, Calendar } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 const treeTrimmingImg = "/assets/07703b17-ad7c-42e2-a727-4057abe7dd4d.png";
 const treeRemovalImg = "/assets/802ad6a4-82a4-43eb-9e60-79801d59f56e.png";
 const stumpGrindingImg = "/assets/87ea87c4-add1-4853-84ee-abb9073b13fc.png";
@@ -12,7 +13,7 @@ const landClearingImg = "/assets/0ed1b619-8b61-460d-b942-7a6166059bb9.png";
 const ServicesSection = () => {
   const services = [{
     title: "Tree Trimming & Pruning",
-    description: "Professional pruning to maintain tree health, safety, and aesthetics. Our certified arborists ensure proper technique.",
+    description: "Professional pruning to maintain tree health, safety, and aesthetics. Our experienced crew ensures proper technique on every job.",
     icon: TreeDeciduous,
     image: treeTrimmingImg,
     link: "/services/tree-trimming",
@@ -23,7 +24,7 @@ const ServicesSection = () => {
     icon: Axe,
     image: treeRemovalImg,
     link: "/services/tree-removal",
-    features: ["Technical removal specialists", "Crane service", "Insurance claim support", "Environmentally responsible disposal"]
+    features: ["Technical removal specialists", "Crane service", "Professional rigging", "Environmentally responsible disposal"]
   }, {
     title: "Stump Grinding",
     description: "Professional stump removal to reclaim your yard space. All debris removed and area restored.",
@@ -37,7 +38,7 @@ const ServicesSection = () => {
     icon: Zap,
     image: emergencyServiceImg,
     link: "/services/emergency",
-    features: ["24/7 availability", "Insurance claims", "Hazard removal", "Property protection"]
+    features: ["24/7 availability", "Storm damage response", "Hazard removal", "Property protection"]
   }, {
     title: "Land & Lot Clearing",
     description: "Complete land clearing for construction, development, or property maintenance projects.",
@@ -60,7 +61,7 @@ const ServicesSection = () => {
           <h2 className="text-section-title mb-4" data-scroll-target>Complete Tree Care Services</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             From routine maintenance to emergency response, we provide comprehensive tree care services 
-            throughout {"{{SERVICE_AREAS}}"} with professional expertise and reliable results.
+            throughout {BUSINESS.serviceAreasText} with professional expertise and reliable results.
           </p>
         </div>
 
@@ -115,15 +116,17 @@ const ServicesSection = () => {
           <h3 className="text-2xl font-bold mb-4">
             Need a Custom Quote for Your Project?
           </h3>
-          <p className="text-primary-foreground/90 mb-6 max-w-2xl mx-auto">Each property deserves personalized care. Our certified arborist will assess your specific needs and provide a detailed, no-obligation estimate.</p>
+          <p className="text-primary-foreground/90 mb-6 max-w-2xl mx-auto">Each property deserves personalized care. Our experienced team will assess your specific needs and provide a detailed, no-obligation estimate.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <a href="tel:+11234567890">
+            <Button variant="cta" size="lg" className="shadow-[0_4px_8px_rgba(0,0,0,0.3)] [&_svg]:!h-5 [&_svg]:!w-5" asChild>
+              <a href={`tel:${BUSINESS.phoneTel}`}>
+                <Phone className="h-5 w-5" />
                 Call for Immediate Service
               </a>
             </Button>
-            <Button variant="secondary" size="lg" asChild>
+            <Button variant="cta" size="lg" className="shadow-[0_4px_8px_rgba(0,0,0,0.3)] [&_svg]:!h-5 [&_svg]:!w-5" asChild>
               <Link to="/contact">
+                <Calendar className="h-5 w-5" />
                 Schedule Consultation
               </Link>
             </Button>

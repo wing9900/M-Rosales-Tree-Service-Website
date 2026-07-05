@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Heart, Clock, Leaf, Calendar, Home, Pencil, MessageSquare, Wrench, Star, TreePine, Shield, ChevronLeft, ChevronRight } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useEffect, useRef, useState } from "react";
+import { FEATURED_REVIEWS } from "@/lib/reviews";
+import { ReviewCarouselText } from "@/components/ReviewCarouselText";
 const WhyChooseUsSection = () => {
   const [api, setApi] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
@@ -28,79 +30,7 @@ const WhyChooseUsSection = () => {
     };
   }, [api, isHovering]);
 
-  const reviews = [{
-    id: 1,
-    name: "Michael R.",
-    avatar: "M",
-    date: "2025-08-15",
-    rating: 5,
-    city: "Houston",
-    text: "After a big storm, we had a massive oak branch hanging dangerously over our driveway. I called in a panic, and they had a crew out here the same afternoon. They were professional, worked incredibly fast, and left the yard cleaner than they found it. Truly a top-notch emergency service.",
-    readMore: false
-  }, {
-    id: 2,
-    name: "Sarah Chen",
-    avatar: "S",
-    date: "2025-08-02",
-    rating: 5,
-    city: "Katy",
-    text: "I needed two large pine trees removed that were too close to the house. The team was amazing from start to finish. They provided a fair and transparent quote, arrived on time, and took down the trees with surgical precision. I would highly recommend this company to anyone.",
-    readMore: false
-  }, {
-    id: 3,
-    name: "David Garcia",
-    avatar: "D",
-    date: "2025-07-28",
-    rating: 5,
-    city: "Sugar Land",
-    text: "We used them for stump grinding on three old stumps in our backyard, and the results were fantastic. The technician was skilled and made quick work of them. It's like they were never there. Excellent service and very reasonable pricing.",
-    readMore: false
-  }, {
-    id: 4,
-    name: "Emily Johnson",
-    avatar: "E",
-    date: "2025-07-19",
-    rating: 5,
-    city: "Richmond",
-    text: "This is my 2nd time using this service and they continue to impress. This time it was for routine tree trimming to get more light into our yard. They did an excellent job shaping the trees and provided great advice on how to keep them healthy. Very professional team.",
-    readMore: false
-  }, {
-    id: 5,
-    name: "Chris Lee",
-    avatar: "C",
-    date: "2025-07-11",
-    rating: 5,
-    city: "Rosenberg",
-    text: "I was extremely impressed with the crew's attention to safety and detail. They had to remove a tree that was awkwardly positioned near power lines, and they handled it flawlessly. The entire process was smooth and stress-free. A very reliable and skilled company.",
-    readMore: false
-  }, {
-    id: 6,
-    name: "Jessica Martinez",
-    avatar: "J",
-    date: "2025-06-30",
-    rating: 5,
-    city: "Fulshear",
-    text: "From the initial call for a quote to the final cleanup, every interaction was professional and courteous. They delivered on every promise at a fair price. They did excellent work and cleaned up perfectly. So glad we chose them!",
-    readMore: false
-  }, {
-    id: 7,
-    name: "Tom Williams",
-    avatar: "T",
-    date: "2025-06-21",
-    rating: 5,
-    city: "Cypress",
-    text: "Needed a large plot of land cleared of overgrown brush and small trees. The crew arrived with impressive equipment and worked tirelessly to get the job done ahead of schedule. The transformation is incredible. Highly recommend for any land clearing projects.",
-    readMore: false
-  }, {
-    id: 8,
-    name: "Olivia Brown",
-    avatar: "O",
-    date: "2025-06-14",
-    rating: 5,
-    city: "Pasadena",
-    text: "Quick, efficient, and professional. They helped us with a stump removal we had been putting off for years. I would highly recommend them. They provided reasonable prices and did a great job cleaning up after they finished. Wish we had called them sooner!",
-    readMore: false
-  }];
+  const reviews = FEATURED_REVIEWS;
   const reasons = [{
     icon: MapPin,
     title: "Local Houston Expertise",
@@ -160,7 +90,7 @@ const WhyChooseUsSection = () => {
   }, {
     icon: Calendar,
     title: "Long-Term Care Focus",
-    description: "We don't just trim or remove trees—we ensure their health and longevity with proactive care and practical advice for your property.",
+    description: "We don't just trim or remove trees. We also focus on their health and longevity with proactive care and practical advice for your property.",
     badge: "Proactive",
     bgColor: "bg-teal-50 dark:bg-teal-950/50",
     borderColor: "border-teal-200 dark:border-teal-800"
@@ -217,8 +147,11 @@ const WhyChooseUsSection = () => {
             <h3 className="text-3xl font-bold mb-4">
               What Our Clients Say
             </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-2">
+              We're proud to be the top-rated choice for exceptional tree service.
+            </p>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-              We're proud to be the top-rated choice for exceptional tree service. See what your neighbors are saying.
+              See what your neighbors are saying.
             </p>
             
             {/* Google Rating */}
@@ -228,7 +161,7 @@ const WhyChooseUsSection = () => {
                 <div className="flex items-center gap-1 justify-center mb-2">
                   {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />)}
                 </div>
-                <div className="text-sm text-muted-foreground">Based on 128 reviews</div>
+                <div className="text-sm text-muted-foreground">5-Star Rated on Google</div>
               </div>
               <div className="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center">
                 <svg viewBox="0 0 24 24" className="w-6 h-6">
@@ -248,17 +181,26 @@ const WhyChooseUsSection = () => {
               loop: true
             }} 
             setApi={setApi}
-            className="w-full max-w-5xl mx-auto"
+            className="relative w-full max-w-5xl mx-auto"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {reviews.map(review => <CarouselItem key={review.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="h-full bg-white dark:bg-gray-800 shadow-lg border-0">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-lg">
-                          {review.avatar}
+            <CarouselContent className="-ml-2 md:-ml-4 items-stretch py-1">
+              {reviews.map(review => <CarouselItem key={review.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 flex py-2">
+                  <Card className="w-full h-[23rem] flex flex-col bg-white dark:bg-gray-800 shadow-lg border-0 overflow-visible">
+                    <CardContent className="p-6 flex flex-col h-full">
+                      <div className="flex items-start gap-4 mb-3 flex-shrink-0">
+                        <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-primary text-white flex items-center justify-center font-semibold text-lg">
+                          {review.photoUrl ? (
+                            <img
+                              src={review.photoUrl}
+                              alt={review.name}
+                              className="w-full h-full object-cover"
+                              referrerPolicy="no-referrer"
+                            />
+                          ) : (
+                            review.avatar
+                          )}
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between mb-1">
@@ -274,7 +216,7 @@ const WhyChooseUsSection = () => {
                           </div>
                           <div className="text-sm text-primary font-medium mb-1">{review.city}, TX</div>
                           <div className="text-sm text-muted-foreground mb-2">{review.date}</div>
-                          <div className="flex items-center gap-1 mb-3">
+                          <div className="flex items-center gap-1">
                             {[...Array(review.rating)].map((_, i) => <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />)}
                             <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none">
                               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#4285F4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -282,14 +224,10 @@ const WhyChooseUsSection = () => {
                           </div>
                         </div>
                       </div>
-                      
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                        {review.text}
-                      </p>
-                      
-                      {review.readMore && <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                          Read more
-                        </button>}
+
+                      <div className="flex-1 min-h-0 flex flex-col">
+                        <ReviewCarouselText text={review.text} />
+                      </div>
                     </CardContent>
                   </Card>
                 </CarouselItem>)}

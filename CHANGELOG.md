@@ -1,5 +1,31 @@
 # Changelog
 
+## July 2026 — M Rosales Tree Service site update & cleanup
+
+### Content & branding
+- Centralized business info, assets, reviews, and gallery config in `src/lib/business.ts`, `reviews.ts`, and `galleryImages.ts`
+- Updated hero, contact, about crew photo, FAQ copy, and service-area content for M Rosales Tree Service (Houston)
+- Homepage reviews carousel: 17 verified Google reviews with read-more for long entries and local reviewer photos
+- Full `/gallery` page: 14 real tree-removal job photos + stump grinding; homepage preview keeps original safe-removal and stump cards
+- About page: crew photo above story; removed redundant stats block
+- Orange `variant="cta"` buttons on FAQ and Services custom-quote sections (matches hero)
+
+### Structure
+- Replaced per-city area page files with dynamic `AreaPage` + `serviceAreasContent.ts`
+- Removed GHL ChatWidget / Sarah card (`ChatWidgetSection.tsx`) and related dead wiring
+
+### Cleanup (no user-facing behavior change)
+- Removed 33 unused shadcn UI components, dead hooks (`use-mobile`), and `App.css`
+- Deleted orphan/duplicate gallery assets, 10 unreferenced UUID PNGs, and dev script artifacts
+- Removed unused exports (`hideCTA` prop, dead `ASSETS` keys, `GOOGLE_REVIEW_COUNT`)
+- Removed historical internal markdown notes (kept `README.md` and this changelog)
+- CSS bundle reduced ~20 KB after unused Tailwind classes were dropped
+
+### Maintenance scripts (dev only, not wired to npm)
+- `scripts/copy-gallery-photos.mjs`, `crop-about-us-photo.mjs`, `fetch-reviews.mjs`, `scrape-reviews.mjs`, `download-faces.mjs`
+
+---
+
 ## Session Updates
 
 ### ChatWidgetSection — Card Position Formula Fix & Tuning (March 2026)

@@ -1,6 +1,7 @@
 import { Phone } from "lucide-react";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { BUSINESS } from "@/lib/business";
 interface CallButtonProps {
   children?: ReactNode;
   showIcon?: boolean;
@@ -40,7 +41,7 @@ export const CallButton = ({
   
   return (
     <a
-      href="tel:{{Phone Number}}"
+      href={`tel:${BUSINESS.phoneTel}`}
       className={cn(baseClasses, variantClasses[variant], sizeClasses[size], className)}
     >
       {showIcon && <Phone className={iconSize} />}

@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Zap, Clock, FileText, Settings, Shield, Phone, AlertTriangle } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 
 const Emergency = () => {
   const services = [
@@ -11,8 +12,8 @@ const Emergency = () => {
       icon: Clock
     },
     {
-      title: "Insurance Claims Specialists", 
-      description: "Experts in the homeowners' insurance claim process for storm damage. We provide immediate, thorough documentation and communicate directly with your insurance company.",
+      title: "Storm Damage Documentation",
+      description: "After storm damage, we provide clear documentation of the work performed and can help you understand what was removed to support any insurance questions you may have.",
       icon: FileText
     },
     {
@@ -57,7 +58,7 @@ const Emergency = () => {
                 Living on the Gulf Coast means living with the constant threat of severe weather. Hurricanes, tropical storms, and violent thunderstorms can wreak havoc on our trees, turning them into immediate dangers. When a tree has fallen on your house, car, or is blocking your street, you need a fast, reliable, and professional team you can trust.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                We provide 24/7 emergency tree services for storm damage across the entire Houston metroplex. Our rapid response crews are on standby to help you secure your property and safely remove hazards, operating with an unwavering commitment to the ANSI Z133 safety standards.
+                We provide 24/7 emergency tree services for storm damage across the entire Houston metroplex. Our rapid response crews are on standby to help you secure your property and safely remove hazards, operating with strict safety protocols on every job.
               </p>
             </div>
           </div>
@@ -75,7 +76,7 @@ const Emergency = () => {
             </div>
             <p className="text-xl mb-4">Don't wait - trees under storm stress are extremely dangerous</p>
             <Button size="xl" variant="secondary" asChild className="w-auto max-w-fit">
-              <a href="tel:+11234567890" className="font-bold">
+              <a href={`tel:${BUSINESS.phoneTel}`} className="font-bold">
                 <Phone className="mr-2 h-6 w-6" />
                 Call For Emergency Response
               </a>
@@ -90,7 +91,7 @@ const Emergency = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Your First Call in a Tree Emergency</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              The aftermath of a storm is a hazardous environment. Storm-damaged trees are under extreme tension and are highly unpredictable. Our experienced arborists are trained to safely manage these complex situations.
+              The aftermath of a storm is a hazardous environment. Storm-damaged trees are under extreme tension and are highly unpredictable. Our experienced crew is trained to safely manage these complex situations.
             </p>
           </div>
 

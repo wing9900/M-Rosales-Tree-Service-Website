@@ -6,7 +6,7 @@ type CompanyNameProps = {
 };
 
 /**
- * Renders the business name from URL (?bizname=...) or defaults to "Local Tree Services".
+ * Renders the business name from URL (?bizname=...) or defaults to M Rosales Tree Service.
  * Use this component anywhere you want the business name to appear (header, footer, hero, etc.).
  */
 export function CompanyName({ className, as: Component = "span" }: CompanyNameProps) {

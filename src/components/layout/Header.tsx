@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CallButton } from "@/components/ui/call-button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, Calendar, MapPin } from "lucide-react";
+import { ASSETS, BUSINESS } from "@/lib/business";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -89,23 +90,23 @@ const Header = () => {
             {/* Left: phone only (above logo) — adjust with md:ml-* (move right) or md:mr-* (space from edge) */}
             <div className="hidden md:flex flex-1 items-center md:-ml-1">
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>{"123-456-7890"}</span>
+                <Phone className="h-4 w-4 translate-y-[2px]" />
+                <span>{BUSINESS.phone}</span>
               </div>
             </div>
 
             {/* Middle: trust text centered above nav links (Home, About, Services, etc.) */}
             <div className="hidden md:flex flex-1 justify-center">
               <span className="text-sm md:text-base">
-                Licensed & Insured • Emergency Services Available 24/7
+                {BUSINESS.trustBar}
               </span>
             </div>
 
-            {/* Right: Pasadena, TX */}
+            {/* Right: Houston, TX */}
             <div className="hidden md:flex flex-1 justify-end items-center">
               <div className="flex items-center gap-2 ml-8 mr-[3%]">
                 <MapPin className="h-4 w-4" />
-                <span>{"Pasadena, TX"}</span>
+                <span>{BUSINESS.serviceAreaLabel}</span>
               </div>
             </div>
           </div>
@@ -133,7 +134,7 @@ const Header = () => {
               }}
             >
               <img
-                src="/logo.ico"
+                src={ASSETS.logoImage}
                 alt={businessName}
                 className="h-[3.25rem] lg:h-[3.9rem] w-auto object-contain"
               />

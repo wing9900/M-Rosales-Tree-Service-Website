@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Home, Search, Phone } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 
 const NotFound = () => {
   const location = useLocation();
@@ -47,7 +48,7 @@ const NotFound = () => {
               our team is standing by to help.
             </p>
             <Button variant="accent" asChild>
-              <a href="tel:+11234567890">
+              <a href={`tel:${BUSINESS.phoneTel}`}>
                 <Phone className="h-4 w-4" />
                 Call Now
               </a>

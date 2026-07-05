@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { Link } from "react-router-dom";
 import { Eye, Image as ImageIcon, MapPin, Phone, Calendar, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { BUSINESS, ASSETS } from "@/lib/business";
 
 const GalleryPreview = () => {
   const [activeItemIndex, setActiveItemIndex] = useState<number | null>(null);
@@ -21,9 +22,10 @@ const GalleryPreview = () => {
     {
       title: "Emergency Storm Response",
       category: "Emergency Services",
-      image: "/assets/7813c07a-6621-4cf6-81ab-1687b9dcd97d.png",
+      image: ASSETS.emergencyTreeServiceImage,
+      imageClassName: "[&_img]:object-[center_40%]",
       description: "Emergency storm damage cleanup project in Sugar Land, TX",
-      detailedDescription: "After a violent thunderstorm swept through Sugar Land, this homeowner was faced with a massive oak tree that had fallen on their house. Our 24/7 emergency crew responded immediately to assess the hazard. We safely dismantled the tree using specialized rigging to prevent further damage, cleared all debris from the property, and secured the area.\n\nThe result: The client's property was made safe and accessible in a matter of hours, providing immediate peace of mind and preventing a prolonged, stressful disruption.",
+      detailedDescription: "After a violent thunderstorm swept through Sugar Land, this homeowner was faced with a massive tree that had fallen on their house. Our 24/7 emergency crew responded immediately to assess the hazard. We safely dismantled the tree using specialized rigging to prevent further damage, cleared all debris from the property, and secured the area.\n\nThe result: The client's property was made safe and accessible in a matter of hours, providing immediate peace of mind and preventing a prolonged, stressful disruption.",
       project: "Emergency Storm Response in Sugar Land, TX",
       location: "Sugar Land, TX",
       service: "Emergency Storm Damage Cleanup"
@@ -31,9 +33,10 @@ const GalleryPreview = () => {
     {
       title: "Safe Tree Removal",
       category: "Tree Removal", 
-      image: "/assets/5cc39ea9-d1d2-4f97-a49f-a63c91e470f0.png",
+      image: ASSETS.safeTreeRemovalImage,
+      imageClassName: "[&_img]:object-[center_32%]",
       description: "Removal of a hazardous tree in Pasadena, TX",
-      detailedDescription: "A large, mature pine tree on this Pasadena property had died, becoming a significant threat to the client's home with every gust of wind. Due to its proximity to the house, this was a highly technical removal. Our certified professionals used our bucket truck and rigging gear to carefully dismantle the tree from the top down, safely lowering each section into a designated drop zone.\n\nThe result: A major hazard was completely eliminated, protecting the client's home and family. The entire removal was executed with precision and zero impact on the surrounding property.",
+      detailedDescription: "A large, mature pine tree on this Pasadena property had died, becoming a significant threat to the client's home with every gust of wind. Due to its proximity to the house, this was a highly technical removal. Our experienced crew used professional rigging gear to carefully dismantle the tree from the top down, safely lowering each section into a designated drop zone.\n\nThe result: A major hazard was completely eliminated, protecting the client's home and family. The entire removal was executed with precision and zero impact on the surrounding property.",
       project: "Safe Tree Removal in Pasadena, TX",
       location: "Pasadena, TX",
       service: "Hazardous Tree Removal"
@@ -53,7 +56,7 @@ const GalleryPreview = () => {
       category: "Tree Pruning",
       image: "/assets/9b457fbe-2c47-4b38-a85e-5b87bc017dec.png",
       description: "Crown thinning and elevation project in Houston, TX",
-      detailedDescription: "The magnificent live oak on this Houston property was casting dense shade, causing the lawn below to struggle. Its lower branches were also encroaching on the driveway. Following ISA and ANSI A300 standards, our trained crew performed a thorough crown thinning, selectively removing branches to improve airflow and allow dappled sunlight to penetrate the canopy. We also elevated the crown, providing ample clearance for vehicles and pedestrians.\n\nThe result: A healthier, more beautiful tree that is now more resilient to Houston's high winds, a brighter lawn that can thrive, and safe, usable space beneath the canopy.",
+      detailedDescription: "The magnificent live oak on this Houston property was casting dense shade, causing the lawn below to struggle. Its lower branches were also encroaching on the driveway. Our trained crew performed a thorough crown thinning, selectively removing branches to improve airflow and allow dappled sunlight to penetrate the canopy. We also elevated the crown, providing ample clearance for vehicles and pedestrians.\n\nThe result: A healthier, more beautiful tree that is now more resilient to Houston's high winds, a brighter lawn that can thrive, and safe, usable space beneath the canopy.",
       project: "Professional Tree Pruning in Houston, TX",
       location: "Houston, TX",
       service: "Crown Thinning & Elevation"
@@ -155,7 +158,7 @@ const GalleryPreview = () => {
                   <OptimizedImage
                     src={item.image}
                     alt={`${item.title} - ${item.description}`}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className={`w-full h-64 transition-transform duration-500 group-hover:scale-110 ${item.imageClassName ?? ""}`}
                     lazy={true}
                     aspectRatio="16/9"
                   />
@@ -262,26 +265,35 @@ const GalleryPreview = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="text-center">
-              <div className="bg-red-50 border-2 border-red-200 rounded-lg p-8 mb-4">
-                <h4 className="text-lg font-semibold text-red-800 mb-2">Before</h4>
-                <p className="text-red-600 text-sm">
-                  Overgrown, hazardous trees blocking sunlight and threatening property
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <div>
+              <h4 className="text-lg font-semibold mb-3 text-center">Before</h4>
+              <div className="overflow-hidden rounded-lg">
+                <OptimizedImage
+                  src={ASSETS.beforePhoto}
+                  alt="Before tree service - overgrown palm tree posing a hazard near the home"
+                  className="w-full aspect-[3/4] [&_img]:object-cover [&_img]:object-[center_28%]"
+                  lazy={true}
+                />
               </div>
+              <p className="text-muted-foreground text-sm text-center mt-3">
+                Overgrown palm tree posing a hazard close to the house and needing removal
+              </p>
             </div>
-            <div className="text-center">
-              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-8 mb-4">
-                <h4 className="text-lg font-semibold text-green-800 mb-2">After</h4>
-                <p className="text-green-600 text-sm">
-                  Professional trimming creates safe, beautiful landscapes with proper clearance
-                </p>
+            <div>
+              <h4 className="text-lg font-semibold mb-3 text-center">After</h4>
+              <div className="overflow-hidden rounded-lg">
+                <OptimizedImage
+                  src={ASSETS.afterPhoto}
+                  alt="After tree service - tree and stump removed with a clean lawn"
+                  className="w-full aspect-[3/4] [&_img]:object-cover [&_img]:object-[center_62%]"
+                  lazy={true}
+                />
               </div>
+              <p className="text-muted-foreground text-sm text-center mt-3">
+                Tree and stump ground out with no mess left behind and no damage to the lawn or house
+              </p>
             </div>
-          </div>
-          <div className="text-center text-sm text-muted-foreground mt-4">
-            <em>Note: Actual before/after photos would be displayed here with real project images</em>
           </div>
         </div>
 
@@ -289,7 +301,7 @@ const GalleryPreview = () => {
         <div className="text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
             <Button variant="accent" size="lg" asChild className="[&_svg]:!h-5 [&_svg]:!w-5">
-              <a href="tel:+11234567890">
+              <a href={`tel:${BUSINESS.phoneTel}`}>
                 <Phone />
                 Call Now
               </a>

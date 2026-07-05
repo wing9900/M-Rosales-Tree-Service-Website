@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Cog, ArrowDown, Truck, Shovel, Sprout, Eye, Shield, Bug, MapPin, Phone, Calendar } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 
 const StumpGrinding = () => {
   const process = [
@@ -71,7 +72,7 @@ const StumpGrinding = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="default" asChild>
-                <a href="tel:+11234567890">
+                <a href={`tel:${BUSINESS.phoneTel}`}>
                   <Phone className="mr-2 h-5 w-5" />
                   Call for Fast Quote
                 </a>

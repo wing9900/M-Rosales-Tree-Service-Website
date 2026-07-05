@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Stethoscope, Search, Bug, Sprout, Shovel, Phone, Calendar } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 const HealthManagement = () => {
   const services = [{
     title: "Tree Health and Risk Assessments",
-    description: "Thorough evaluations identifying signs of disease, pest infestations, and structural defects. Using ISA Tree Risk Assessment Qualification (TRAQ) methodology for comprehensive analysis.",
+    description: "Thorough evaluations identifying signs of disease, pest infestations, and structural defects using proven assessment methods for comprehensive analysis.",
     icon: Search
   }, {
     title: "Pest and Disease Diagnosis and Treatment",
@@ -33,14 +34,14 @@ const HealthManagement = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              ISA Arborist Tree Health Care & Disease Treatment in Houston
+              Tree Health Care & Disease Treatment in Houston
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Our ISA Certified Arborists serve as "tree doctors," applying a scientific approach to tree health care based on ANSI A300 standards to protect your valuable trees.
+              Our experienced crew takes a careful, hands-on approach to tree health care, diagnosing problems and recommending practical solutions to protect your valuable trees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="default" asChild>
-                <a href="tel:+11234567890">
+                <a href={`tel:${BUSINESS.phoneTel}`}>
                   <Phone className="mr-2 h-5 w-5" />
                   Call For Assessment
                 </a>
@@ -65,7 +66,7 @@ const HealthManagement = () => {
                 Your mature trees are a priceless investment, but they are also complex organisms facing numerous threats in our region. Houston's intense summer heat, high humidity, and periods of drought or flood create a challenging environment where pests and diseases can flourish. A subtle change in a tree's appearance can often be the first sign of a serious health issue.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                At <CompanyName />, our ISA Certified Arborists serve as "tree doctors," applying a scientific approach to tree health care based on ANSI A300 standards. We offer comprehensive solutions to diagnose, treat, and prevent problems, protecting your valuable trees for years to come.
+                At <CompanyName />, our experienced team applies a practical, hands-on approach to tree health care. We offer comprehensive solutions to diagnose, treat, and prevent problems, protecting your valuable trees for years to come.
               </p>
             </div>
           </div>
@@ -183,7 +184,7 @@ const HealthManagement = () => {
       <section className="section-padding bg-muted/30">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8">Partner with a Houston Arborist to Protect Your Trees</h2>
+            <h2 className="text-3xl font-bold mb-8">Partner with Houston Tree Care Experts to Protect Your Trees</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Proactive health management is the most effective way to protect your landscape investment. Early detection and professional treatment can save a struggling tree, prevent the spread of disease, and avoid the high cost of removal.
