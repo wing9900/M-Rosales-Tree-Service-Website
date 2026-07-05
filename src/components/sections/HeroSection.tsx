@@ -15,7 +15,7 @@ const HeroSection = () => {
         <img 
           src={heroImage} 
           alt={`${businessName} crew with chip truck and wood chipper`}
-          className="w-full h-full object-cover object-[center_52%] sm:object-[center_50%] lg:object-[center_48%]"
+          className="w-full h-full object-cover object-[28%_52%] sm:object-[center_50%] lg:object-[center_48%]"
         />
         <div className="absolute inset-0 bg-black/[0.11]" />
       </div>
@@ -93,7 +93,7 @@ const HeroSection = () => {
             <CallButton variant="cta" size="xl" className="text-lg h-14 shadow-[0_4px_8px_rgba(0,0,0,0.3)] [&_svg]:!h-5 [&_svg]:!w-5" showIcon={true}>
               Call Now
             </CallButton>
-            <Button variant="cta" size="xl" className="text-lg h-14 [&_svg]:!h-5 [&_svg]:!w-6" asChild style={{boxShadow: '0 4px 8px rgba(0,0,0,0.3)'}}>
+            <Button variant="cta" size="xl" className="hidden sm:inline-flex text-lg h-14 [&_svg]:!h-5 [&_svg]:!w-6" asChild style={{boxShadow: '0 4px 8px rgba(0,0,0,0.3)'}}>
               <Link to="/contact">
                 <Calendar />
                 Get Free Estimate
