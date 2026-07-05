@@ -15,7 +15,7 @@ const HeroSection = () => {
         <img 
           src={heroImage} 
           alt={`${businessName} crew with chip truck and wood chipper`}
-          className="w-full h-full object-cover object-[center_52%] sm:object-[center_50%] lg:object-[center_48%]"
+          className="w-full h-full object-cover object-[center_38%] scale-[1.35] sm:object-[center_50%] sm:scale-100 lg:object-[center_48%]"
         />
         <div className="absolute inset-0 bg-black/[0.11]" />
       </div>
