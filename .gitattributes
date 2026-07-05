@@ -1,1 +1,2 @@
-# Bun lockfiles removed — Cloudflare Pages uses npm (package-lock.json) for installs.
+# Prevent binary lockfile corruption if bun.lockb is ever reintroduced.
+bun.lockb binary
