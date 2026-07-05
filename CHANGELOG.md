@@ -2,6 +2,11 @@
 
 ## July 2026 — M Rosales Tree Service site update & cleanup
 
+### Gallery preview card alignment (July 5, 2026)
+- Homepage “See Our Professional Results” cards now align evenly in each row
+- Fixed image area to a consistent `h-64` height; cards stretch to equal height via flex layout
+- Description text reserves two lines so short copy no longer shrinks cards next to wrapped text
+
 ### Content & branding
 - Centralized business info, assets, reviews, and gallery config in `src/lib/business.ts`, `reviews.ts`, and `galleryImages.ts`
 - Updated hero, contact, about crew photo, FAQ copy, and service-area content for M Rosales Tree Service (Houston)

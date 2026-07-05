@@ -147,20 +147,19 @@ const GalleryPreview = () => {
             <button
               key={item.title}
               type="button"
-              className="w-full text-left bg-transparent border-0 p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="w-full h-full text-left bg-transparent border-0 p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               onClick={() => openModal(index)}
             >
               <Card 
-                className="group overflow-hidden hover-lift animate-fade-in cursor-pointer border-0"
+                className="group overflow-hidden hover-lift animate-fade-in cursor-pointer border-0 h-full flex flex-col"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden h-64 shrink-0">
                   <OptimizedImage
                     src={item.image}
                     alt={`${item.title} - ${item.description}`}
-                    className={`w-full h-64 transition-transform duration-500 group-hover:scale-110 ${item.imageClassName ?? ""}`}
+                    className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${item.imageClassName ?? ""}`}
                     lazy={true}
-                    aspectRatio="16/9"
                   />
                   
                   {/* Overlay */}
@@ -173,9 +172,9 @@ const GalleryPreview = () => {
                   
                 </div>
                 
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="text-card-title mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2 min-h-[2.75rem]">{item.description}</p>
                 </div>
               </Card>
             </button>
