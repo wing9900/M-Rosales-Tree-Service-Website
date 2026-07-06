@@ -344,16 +344,24 @@
 
 /* Hero: iOS large phones only (~430px, e.g. iPhone Pro Max). Excludes Android, tablet, desktop. */
 @supports (-webkit-touch-callout: none) {
-  @media (max-width: 639px) and (min-width: 428px) and (max-width: 431px) and (min-height: 900px) {
+  @media (max-width: 639px) and (min-width: 420px) and (max-width: 440px) {
+    .hero-content-shell {
+      flex: 1;
+      min-height: 100svh;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
     .hero-content-stack {
       display: flex;
       flex-direction: column;
-      min-height: calc(100dvh - 7.5rem);
+      flex: 1;
+      width: 100%;
+      min-height: calc(100svh - 8rem);
     }
 
     .hero-cta-cluster {
       margin-top: auto;
-      padding-bottom: 0.75rem;
+      padding-bottom: 1rem;
     }
   }
 }
