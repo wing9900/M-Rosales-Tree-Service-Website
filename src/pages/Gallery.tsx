@@ -309,12 +309,12 @@ const Gallery = () => {
                 Call Now
               </a>
             </Button>
-            <Link to="/contact">
-              <Button size="lg" className="shadow-md hover:shadow-lg hover:bg-primary/80 [&_svg]:!h-5 [&_svg]:!w-5">
+            <Button size="lg" className="shadow-md hover:shadow-lg hover:bg-primary/80 [&_svg]:!h-5 [&_svg]:!w-5" asChild>
+              <Link to="/contact">
                 <Calendar />
                 Get Free Estimate
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </section>
       </div>
