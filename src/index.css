@@ -342,3 +342,19 @@
   }
 }
 
+/* Hero: iOS large phones only (~430px, e.g. iPhone Pro Max). Excludes Android, tablet, desktop. */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 639px) and (min-width: 428px) and (max-width: 431px) and (min-height: 900px) {
+    .hero-content-stack {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100dvh - 7.5rem);
+    }
+
+    .hero-cta-cluster {
+      margin-top: auto;
+      padding-bottom: 0.75rem;
+    }
+  }
+}
+

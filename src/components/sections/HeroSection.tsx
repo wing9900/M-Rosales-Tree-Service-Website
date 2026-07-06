@@ -23,7 +23,7 @@ const HeroSection = () => {
       {/* Content */}
       {/* ORIGINAL MOBILE POSITIONING: pt-36 | mb-6, mb-4, mb-6, mb-4 | CURRENT: pt-20 */}
       <div className="relative z-10 container-custom text-center text-white flex flex-col justify-start items-center min-h-screen pt-24 sm:justify-center sm:pt-0">
-        <div className="max-w-4xl mx-auto w-full px-4">
+        <div className="max-w-4xl mx-auto w-full px-4 hero-content-stack">
           {/* Main Headline */}
           {/* ORIGINAL: text-hero (which is text-4xl md:text-5xl lg:text-6xl) */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 -mt-0 sm:-mt-4 animate-slide-up" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
@@ -48,6 +48,7 @@ const HeroSection = () => {
             </span>
           </p>
 
+          <div className="hero-cta-cluster">
           {/* Google Reviews Widget */}
           <div className="flex flex-col items-center justify-center mb-4 sm:mb-8 animate-fade-in">
             <div className="flex items-center gap-2.5 bg-white rounded-full px-3.5 py-2 shadow-lg scale-100 sm:scale-[1.05]">
@@ -99,6 +100,7 @@ const HeroSection = () => {
                 Get Free Estimate
               </Link>
             </Button>
+          </div>
           </div>
 
         </div>
