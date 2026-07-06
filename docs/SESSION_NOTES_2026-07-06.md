@@ -11,7 +11,7 @@ Comprehensive record of all work done in this Cursor Cloud Agent session. Use th
 | **Repository** | `wing9900/M-Rosales-Tree-Service-Website` |
 | **Base commit at session start** | `80aa384` — gallery preview card height fix |
 | **Branches created** | 2 feature branches (see below) |
-| **Pull requests opened** | PR #5 (hero mobile), PR #6 (dead code cleanup) |
+| **Pull requests opened** | PR #5 (hero mobile), PR #6 (dead code cleanup), PR #7 (iOS Pro Max CTA position) |
 | **Production deploy path** | Cloudflare via `.github/workflows/deploy-cloudflare.yml` on `main` |
 | **Dev server port** | `9080` (configured in `vite.config.ts`, **not** 8080) |
 
@@ -51,6 +51,118 @@ className="text-lg h-14 [&_svg]:!h-5 [&_svg]:!w-6"
 ```
 
 **Fine-tuning:** If truck still clipped or too far right, adjust the first value in `object-[34%_50%]` (lower = more left of image visible, higher = more right).
+
+---
+
+### 3. `cursor/hero-ios-promax-cta-ed51` → PR #7
+
+**Goal:** On iPhone Pro Max only, move the Google reviews pill and CTA buttons **down** so the crew in the hero photo is visible — without affecting Android, tablet, or desktop.
+
+**Commits (3 iterations):**
+
+| Commit | Message | Result |
+|---|---|---|
+| `f544997` | Push hero pill and CTAs down on iOS Pro Max only | Initial attempt — **no visible effect** on device |
+| `160d37e` | Fix iOS Pro Max hero CTA push — relax viewport height rule | **Overcorrected** — pill/buttons pinned to bottom of screen |
+| `bb9f008` | Tone down iOS Pro Max hero CTA offset — use fixed gap not bottom pin | **Current** — moderate 3.25rem gap below subtext |
+
+---
+
+#### Problem and user feedback
+
+1. **Original issue:** Reviews pill and orange CTA buttons sat over the crew members’ faces/bodies in the hero photo on iPhone Pro Max.
+2. **Attempt 1 (`f544997`):** Wrapped pill + buttons in `.hero-cta-cluster` inside `.hero-content-stack`. CSS used `margin-top: auto` with `min-height: 900px` viewport requirement. **Did not apply** on Safari because visible viewport height with address bar is often &lt; 900px.
+3. **Attempt 2 (`160d37e`):** Removed height requirement; used `margin-top: auto` + `100svh` flex layout on `.hero-content-shell` and `.hero-content-stack`. **Worked but overcorrected** — huge gap between subtext and pill; buttons crammed against Safari bottom bar.
+4. **Attempt 3 (`bb9f008`, current):** Removed bottom-pin flex layout entirely. Uses a **fixed `margin-top: 3.25rem`** on `.hero-cta-cluster` only. Moderate gap — crew visible in photo between subtext and pill, buttons not at screen bottom.
+
+---
+
+#### Files changed (final state)
+
+| File | Change |
+|---|---|
+| `src/components/sections/HeroSection.tsx` | Wrapped reviews pill + CTA buttons in `<div className="hero-cta-cluster">` inside `<div className="hero-content-stack">` |
+| `src/index.css` | iOS-only scoped media query (see below) |
+
+**HeroSection.tsx structure (relevant excerpt):**
+```tsx
+<div className="max-w-4xl mx-auto w-full px-4 hero-content-stack">
+  <h1>...</h1>
+  <p>...</p>  {/* subheadline + mobile bullet lines */}
+
+  <div className="hero-cta-cluster">
+    {/* Google reviews pill */}
+    {/* Call Now + Get Free Estimate buttons */}
+  </div>
+</div>
+```
+
+**index.css (final rule):**
+```css
+/* Hero: iOS large phones only (~430px, e.g. iPhone Pro Max). Excludes Android, tablet, desktop. */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 639px) and (min-width: 420px) and (max-width: 440px) {
+    .hero-cta-cluster {
+      margin-top: 3.25rem;
+    }
+  }
+}
+```
+
+---
+
+#### Targeting logic (what devices are affected)
+
+| Condition | Purpose |
+|---|---|
+| `@supports (-webkit-touch-callout: none)` | iOS Safari only — **excludes Android** |
+| `max-width: 639px` | Mobile only — **excludes tablet/desktop** (`sm` = 640px) |
+| `min-width: 420px` and `max-width: 440px` | Large-phone width band (~430px iPhone Pro Max) — **excludes most Android** (typically 360–412px) and smaller iPhones (393px, 402px) |
+
+**Note:** Other iPhone Pro Max models (14/15/16 Pro Max) share ~430px width and will also get this rule. That is intentional — same screen class.
+
+---
+
+#### What is NOT changed by PR #7
+
+- Hero image crop (`object-[34%_50%]` on mobile) — from PR #5, unchanged
+- `sm:hidden` on Get Free Estimate button — unchanged
+- Desktop/tablet hero layout (`sm:justify-center`, etc.) — unchanged
+- All other pages and components — untouched
+
+---
+
+#### Fine-tuning the gap (single knob)
+
+Edit **one value** in `src/index.css` → `.hero-cta-cluster` → `margin-top`:
+
+| Symptom | Adjustment |
+|---|---|
+| Pill/buttons still cover crew | **Increase** gap (e.g. `4rem`, `4.5rem`) |
+| Gap too large / buttons too low | **Decrease** gap (e.g. `2.5rem`, `3rem`) |
+| Current balanced value | `3.25rem` (~52px) |
+
+---
+
+#### How to revert PR #7 entirely
+
+```bash
+git revert bb9f008 160d37e f544997
+```
+
+Or remove the CSS block and unwrap `.hero-cta-cluster` / `.hero-content-stack` divs in `HeroSection.tsx`.
+
+---
+
+#### Preview during development
+
+Changes are on branch `cursor/hero-ios-promax-cta-ed51` until merged to `main`. Production (`mrosalestreeservice.truaido.com`) will **not** show these changes until deploy.
+
+Dev preview via Cloudflare tunnel (ephemeral):
+```bash
+npm run dev:tunnel
+```
+Use the printed `https://*.trycloudflare.com` URL on phone; hard-refresh after each CSS change.
 
 ---
 
@@ -281,6 +393,9 @@ git push origin main
 | If this breaks… | Do this |
 |---|---|
 | Hero truck still wrong on mobile | Tweak `object-[34%_50%]` in `HeroSection.tsx` |
+| iOS Pro Max pill/buttons too low | Decrease `margin-top` on `.hero-cta-cluster` in `index.css` (currently `3.25rem`) |
+| iOS Pro Max pill/buttons still cover crew | Increase `margin-top` on `.hero-cta-cluster` (try `4rem`–`4.5rem`) |
+| iOS Pro Max CTA change affects wrong devices | Check `@supports` + width band `420px–440px` in `index.css` |
 | Estimate button missing on mobile | Check `sm:hidden` wasn't removed from hero Button |
 | Estimate button appears on desktop | Re-add `sm:hidden` to hero estimate Button |
 | Contact form toast gone | Restore Radix toast files (should still be present); check `App.tsx` has `<Toaster />` |
@@ -305,17 +420,18 @@ git revert 9a59e1d
 
 ---
 
-## File change summary (both commits combined)
+## File change summary (all session branches)
 
 ```
  README.md                               |  updated
  docs/HEADER_LAYOUT_NOTES.md             |  deleted
- docs/SESSION_NOTES_2026-07-06.md        |  added (this file)
+ docs/SESSION_NOTES_2026-07-06.md        |  added + updated (this file)
  package.json                            |  40 lines changed (deps removed)
  package-lock.json                       |  major reduction
  scripts/*                               |  6 files deleted
  src/App.tsx                             |  removed Sonner + React Query
- src/components/sections/HeroSection.tsx |  mobile crop + sm:hidden estimate
+ src/components/sections/HeroSection.tsx |  mobile crop, sm:hidden estimate, hero-cta-cluster wrapper
+ src/index.css                           |  iOS Pro Max .hero-cta-cluster margin-top rule
  src/components/ui/optimized-image.tsx   |  removed dead WebP code
  src/components/ui/sonner.tsx             |  deleted
  src/contexts/BusinessNameContext.tsx    |  removed isFromUrl export
@@ -327,4 +443,4 @@ git revert 9a59e1d
 
 ---
 
-*Generated at end of Cursor Cloud Agent session, July 6, 2026 UTC.*
+*Last updated: July 6, 2026 UTC — includes iOS Pro Max hero CTA positioning (PR #7).*

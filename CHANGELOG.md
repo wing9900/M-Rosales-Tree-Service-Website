@@ -48,6 +48,13 @@ Full session notes: **`docs/SESSION_NOTES_2026-07-06.md`**
 - Fixed README (project name, port 9080); pruned invalid Tailwind content globs
 - Removed unused `build:ci` npm script
 
+### iOS Pro Max hero CTA position (PR #7, branch `cursor/hero-ios-promax-cta-ed51`)
+- Wrapped reviews pill + CTA buttons in `.hero-cta-cluster` in `HeroSection.tsx`
+- iOS large phones only (~420–440px width): `margin-top: 3.25rem` on cluster to reveal crew in hero photo
+- Excludes Android, tablet, desktop via `@supports (-webkit-touch-callout: none)` + width/breakpoint rules
+- **Iteration history:** v1 no effect (900px height rule); v2 overcorrected (`margin-top: auto`); v3 current fixed gap
+- See `docs/SESSION_NOTES_2026-07-06.md` § PR #7 for full rollback and fine-tuning guide
+
 ---
 
 ## Session Updates
