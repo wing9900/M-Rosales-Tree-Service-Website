@@ -75,7 +75,7 @@ const Emergency = () => {
               <AlertTriangle className="h-8 w-8" />
             </div>
             <p className="text-xl mb-4">Don't wait - trees under storm stress are extremely dangerous</p>
-            <Button size="xl" variant="secondary" asChild className="w-auto max-w-fit">
+            <Button size="xl" variant="default" asChild className="w-auto max-w-fit">
               <a href={`tel:${BUSINESS.phoneTel}`} className="font-bold">
                 <Phone className="mr-2 h-6 w-6" />
                 Call For Emergency Response
