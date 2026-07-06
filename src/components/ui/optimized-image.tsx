@@ -13,7 +13,6 @@ interface OptimizedImageProps {
   onLoad?: () => void;
   onError?: () => void;
   blur?: boolean;
-  quality?: number;
   fit?: "cover" | "contain";
 }
 
@@ -29,7 +28,6 @@ const OptimizedImage = ({
   onLoad,
   onError,
   blur = true,
-  quality = 85,
   fit = "cover"
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -58,16 +56,6 @@ const OptimizedImage = ({
     return () => observer.disconnect();
   }, [priority, lazy]);
 
-  // Generate WebP source with fallback
-  const getWebPSource = (originalSrc: string) => {
-    // Skip WebP conversion for now - can be enabled later if needed
-    return null;
-    if (originalSrc.includes('.png') || originalSrc.includes('.jpg') || originalSrc.includes('.jpeg')) {
-      return originalSrc.replace(/\.(png|jpg|jpeg)$/, '.webp');
-    }
-    return originalSrc;
-  };
-
   const handleLoad = () => {
     setIsLoaded(true);
     onLoad?.();
@@ -93,34 +81,22 @@ const OptimizedImage = ({
         <div className="absolute inset-0 bg-muted animate-pulse" />
       )}
       
-      {/* Actual image */}
       {isInView && (
-        <picture>
-          {/* WebP source for modern browsers - only if WebP version exists */}
-          {getWebPSource(src) && (
-            <source 
-              srcSet={getWebPSource(src)} 
-              type="image/webp"
-            />
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={priority ? "eager" : "lazy"}
+          className={cn(
+            "w-full h-full transition-opacity duration-300",
+            fit === "contain" ? "object-contain" : "object-cover",
+            isLoaded ? "opacity-100" : "opacity-0",
+            hasError && "opacity-50"
           )}
-          
-          {/* Fallback for older browsers */}
-          <img
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            loading={priority ? "eager" : "lazy"}
-            className={cn(
-              "w-full h-full transition-opacity duration-300",
-              fit === "contain" ? "object-contain" : "object-cover",
-              isLoaded ? "opacity-100" : "opacity-0",
-              hasError && "opacity-50"
-            )}
-            onLoad={handleLoad}
-            onError={handleError}
-          />
-        </picture>
+          onLoad={handleLoad}
+          onError={handleError}
+        />
       )}
 
       {/* Error state */}

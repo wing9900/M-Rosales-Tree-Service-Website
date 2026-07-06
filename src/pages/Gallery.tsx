@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { OptimizedImage } from "@/components/ui/optimized-image";
-import { ArrowLeft, Eye, X, ChevronLeft, ChevronRight, Image as ImageIcon, Calendar, Phone } from "lucide-react";
+import { Eye, X, ChevronLeft, ChevronRight, Image as ImageIcon, Calendar, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BUSINESS } from "@/lib/business";
 import { STUMP_GRINDING_JOB, TREE_REMOVAL_JOBS } from "@/lib/galleryImages";
