@@ -22,7 +22,7 @@ const HeroSection = () => {
 
       {/* Content */}
       {/* ORIGINAL MOBILE POSITIONING: pt-36 | mb-6, mb-4, mb-6, mb-4 | CURRENT: pt-20 */}
-      <div className="relative z-10 container-custom text-center text-white flex flex-col justify-start items-center min-h-screen pt-24 sm:justify-center sm:pt-0 hero-content-shell">
+      <div className="relative z-10 container-custom text-center text-white flex flex-col justify-start items-center min-h-screen pt-24 sm:justify-center sm:pt-0">
         <div className="max-w-4xl mx-auto w-full px-4 hero-content-stack">
           {/* Main Headline */}
           {/* ORIGINAL: text-hero (which is text-4xl md:text-5xl lg:text-6xl) */}
