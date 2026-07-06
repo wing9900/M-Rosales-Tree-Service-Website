@@ -8,7 +8,7 @@ export const STUMP_GRINDING_JOB = {
   location: "Houston, TX",
   image: `${GALLERY_BASE}/stump-grinding-job.png`,
   description:
-    "One of our crew members operating our self-propelled stump grinder to remove this stump located in a small backyard, so the homeowner can utilize the planting space.",
+    "A member of our team operating our self-propelled grinder to remove this stump located in a small backyard.",
   imageClassName: "[&_img]:object-[center_55%]",
 };
 
@@ -52,6 +52,7 @@ export const TREE_REMOVAL_JOBS = [
     description:
       "Our team setting up to remove this large dead pine tree threatening the property owner's safety.",
     imageClassName: "[&_img]:object-[center_22%]",
+    modalImageClassName: "max-sm:object-top",
   },
   {
     id: 106,
@@ -60,7 +61,7 @@ export const TREE_REMOVAL_JOBS = [
     location: "Spring, TX",
     image: `${GALLERY_BASE}/tree-removal-10.png`,
     description:
-      "Our team working hard to remove a dying palm tree in the backyard of one of our client's homes.",
+      "Our team working hard to remove a dying palm tree in the backyard of one of our clients' homes.",
     imageClassName: "[&_img]:object-[center_30%]",
   },
   {
@@ -120,8 +121,9 @@ export const TREE_REMOVAL_JOBS = [
     location: "Baytown, TX",
     image: `${GALLERY_BASE}/tree-removal-17.png`,
     description:
-      "Prepping to remove this large tree with structural issues posing a risk to the safety of the homeowner and their property.",
+      "Prepping to remove this large tree with structural issues posing a risk to the safety of the homeowners and their property.",
     imageClassName: "[&_img]:object-[center_50%]",
+    modalImageClassName: "max-sm:object-top",
   },
   {
     id: 114,
@@ -139,7 +141,7 @@ export const TREE_REMOVAL_JOBS = [
     location: "Houston, TX",
     image: `${GALLERY_BASE}/tree-removal-by-powerlines.png`,
     description:
-      "Our team working to remove another large dead pine tree posing a risk to nearby traffic and utility lines.",
+      "Our team removing another large dead pine tree posing a risk to nearby traffic and utility lines.",
     imageClassName: "[&_img]:object-[center_30%]",
   },
 ];

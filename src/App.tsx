@@ -18,6 +18,10 @@ import Blog from "./pages/Blog";
 
 import Gallery from "./pages/Gallery";
 
+import Privacy from "./pages/Privacy";
+
+import Sitemap from "./pages/Sitemap";
+
 import NotFound from "./pages/NotFound";
 
 import TreeTrimming from "./pages/services/TreeTrimming";
@@ -263,6 +267,10 @@ const App = () => (
         <Route path="/blog" element={<Blog />} />
 
         <Route path="/gallery" element={<Gallery />} />
+
+        <Route path="/privacy" element={<Privacy />} />
+
+        <Route path="/sitemap" element={<Sitemap />} />
 
         <Route path="/services/tree-trimming" element={<TreeTrimming />} />
 

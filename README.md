@@ -28,6 +28,13 @@ npm run build
 
 Production deploys to Cloudflare via GitHub Actions on pushes to `main`.
 
+**Sitemap for search engines:** Set a GitHub Actions repository variable `SITE_URL` to your live site URL (e.g. `https://yourdomain.com`, no trailing slash). The build generates `sitemap.xml` and updates `robots.txt` when this is set. Without it, `/sitemap` still works for visitors; XML sitemap is skipped.
+
+```bash
+# Local production build with sitemap (optional)
+VITE_SITE_URL=https://yourdomain.com npm run build
+```
+
 ## Tech Stack
 
 - Vite

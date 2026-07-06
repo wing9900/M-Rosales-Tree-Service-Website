@@ -25,7 +25,7 @@ const TreeRemoval = () => {
     },
     {
       title: "Environmentally Responsible Disposal",
-      description: "Complete cleanup with all limbs, logs, and debris chipped and hauled away. We recycle 100% of our green waste into valuable mulch right here in Houston.",
+      description: "We recycle 100% of the green waste from our tree removals into valuable mulch here in the Houston area, keeping material out of landfills and putting it back to productive use.",
       icon: Recycle
     }
   ];

@@ -65,7 +65,7 @@ const StumpGrinding = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Houston Stump Grinding Services — Reclaim Your Yard!
+              Professional Stump Grinding Services in Houston
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
               Professional stump grinding services that are fast, effective, and completely eliminate the problem. Make that stump disappear and reclaim your outdoor space.

@@ -49,7 +49,7 @@ const HealthManagement = () => {
               <Button size="lg" variant="default" asChild>
                 <Link to="/contact">
                   <Calendar className="mr-2 h-5 w-5" />
-                  Schedule An Assessment
+                  Schedule an Assessment
                 </Link>
               </Button>
             </div>

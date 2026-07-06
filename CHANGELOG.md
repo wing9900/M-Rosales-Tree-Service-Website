@@ -1,5 +1,53 @@
 # Changelog
 
+## July 5–6, 2026 — Gallery mobile fixes, cleanup, legal pages, and deploy SEO
+
+### Gallery (`/gallery`) — mobile caption layout
+- **Problem:** Tall portrait images pushed captions below the visible area on mobile; read-more expanded the panel and pushed images up.
+- **Fix:** Mobile modal uses `grid-rows-[1fr_auto]`, full-viewport pinning, `max-h-full` on images, and a fixed-height caption panel (`9rem`) with in-panel scroll via shared `ReviewCarouselText`.
+- **Read more:** Threshold raised to **132 characters** — only Stump Grinding and Large Tree Pruning captions get a toggle; all others show full text.
+- **Desktop:** Gradient overlay captions unchanged.
+- **Image crops:** `tree-removal-09.png` (Dismantling Preparation) and `tree-removal-17.png` (Complex Tree Removal) cropped ~15% from the bottom (file-level, not CSS).
+- **Performance:** Both PNGs losslessly recompressed after crop (444×816 and 461×870 unchanged; ~882 KB → ~330 KB each).
+
+### Spelling & copy
+- Review quotes in `reviews.ts`: punctuation, spacing, accommodating, tree work, time formatting, possessives.
+- Gallery: clients' grammar, “sail effect” wording; Contact form labels; Health Management button capitalization.
+- **Stump Grinding H1:** `Professional Stump Grinding Services in Houston` (matches other service pages).
+- **Tree Removal card:** “Environmentally Responsible Disposal” rewritten to focus on mulch recycling only (no overlap with debris cleanup card).
+
+### Hero, footer, and 404
+- Restored desktop **Get Free Estimate** button (`hidden sm:inline-flex`); mobile keeps separate `sm:hidden` button.
+- Footer: removed broken `/privacy`, `/terms`, `/sitemap` links → re-added working **Privacy** and **Sitemap** after pages were built.
+- NotFound “Browse Services” → `/#services` (no `/services` index route).
+
+### New pages & SEO
+- **`/privacy`** — Privacy Policy (contact form data, no analytics trackers, Google Maps + Facebook third-party notes).
+- **`/sitemap`** — Human-readable link index (main pages, services, all 18 service areas).
+- **`src/lib/siteRoutes.ts`** — Single source of truth for public URLs used by sitemap generation.
+- **`sitemap.xml`** — Generated at build time when `VITE_SITE_URL` is set (see README).
+- **`robots.txt`** — `Sitemap:` line appended in `dist/` on production builds with `VITE_SITE_URL`.
+- Deploy workflow passes `VITE_SITE_URL: ${{ vars.SITE_URL }}` from GitHub Actions repository variable.
+
+### Google Maps (Contact page)
+- Replaced placeholder `mapsEmbedUrl` in `business.ts` with address-based embed for `1929 Coulcrest Dr, Houston, TX 77055`.
+
+### Dead code & dev artifact cleanup (no visible change except fixes above)
+- Removed unused imports (`Badge` in Gallery, `TreePine` in ServicesSection).
+- Removed unused `category` / `service` fields in `GalleryPreview.tsx`.
+- Removed empty blog `excerpt` fields and render block in `Blog.tsx`.
+- Removed no-op `hero-content-stack` class in `HeroSection.tsx`.
+- Consolidated `hoursDetail` → `hours` in `business.ts` / `Contact.tsx`.
+- Made `REVIEW_EXPAND_THRESHOLD` and `previewAtWordBoundary` internal to `ReviewCarouselText.tsx`.
+- Deleted `scripts/` folder and `docs/` session notes (not used by build or deploy).
+
+### Not changed (known follow-ups)
+- Contact form still uses mock `setTimeout` submit (toast only; no email backend).
+- Emergency page H1 still uses an em dash (`24/7 Emergency Tree Service in Houston — …`).
+- ESLint: 3 pre-existing errors (not run in CI).
+
+---
+
 ## July 2026 — M Rosales Tree Service site update & cleanup
 
 ### Gallery preview card alignment (July 5, 2026)
@@ -27,13 +75,13 @@
 - CSS bundle reduced ~20 KB after unused Tailwind classes were dropped
 
 ### Maintenance scripts (dev only, not wired to npm)
-- ~~`scripts/copy-gallery-photos.mjs`, `crop-about-us-photo.mjs`, `fetch-reviews.mjs`, `scrape-reviews.mjs`, `download-faces.mjs`~~ **Removed July 6, 2026** — see `docs/SESSION_NOTES_2026-07-06.md`
+- ~~`scripts/copy-gallery-photos.mjs`, `crop-about-us-photo.mjs`, `fetch-reviews.mjs`, `scrape-reviews.mjs`, `download-faces.mjs`~~ **Removed July 6, 2026** (see changelog entry above)
 
 ---
 
 ## July 6, 2026 — Mobile hero + low-risk dead code cleanup
 
-Full session notes: **`docs/SESSION_NOTES_2026-07-06.md`**
+_Historical notes from earlier July 6 work. Session docs (`docs/SESSION_NOTES_2026-07-06.md`) were later removed; see top changelog entry for current state._
 
 ### Mobile hero (PR #5, branch `cursor/mobile-hero-image-cta-ed51`)
 - Hero image crop on mobile: `object-[34%_50%]` (was `object-[center_52%]`) to show full truck and crew

@@ -2,13 +2,19 @@ import { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { ReviewCarouselText } from "@/components/ReviewCarouselText";
 import { Eye, X, ChevronLeft, ChevronRight, Image as ImageIcon, Calendar, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BUSINESS } from "@/lib/business";
 import { STUMP_GRINDING_JOB, TREE_REMOVAL_JOBS } from "@/lib/galleryImages";
+import { cn } from "@/lib/utils";
+
+/** Gallery captions longer than this get a Read more toggle on mobile. */
+const GALLERY_MOBILE_EXPAND_THRESHOLD = 132;
+/** Collapsed preview length for long gallery captions (~two lines on mobile). */
+const GALLERY_MOBILE_PREVIEW_LENGTH = 108;
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -88,7 +94,7 @@ const Gallery = () => {
       category: "Tree Pruning",
       location: "Houston, TX",
       image: "/assets/gallery/tree-pruning-house-clearance-canopy.png",
-      description: "Pruned and thinned this tree's canopy to reduce wind sail and to provide structural clearance.",
+      description: "Pruned and thinned this tree's canopy to reduce the sail effect and to provide structural clearance.",
       imageClassName: "[&_img]:object-[center_35%]",
     },
     {
@@ -98,7 +104,7 @@ const Gallery = () => {
       location: "Houston, TX",
       image: "/assets/gallery/large-tree-pruning-front-yard.png",
       description:
-        "Large oak tree pruned to remove deadwood and reduce the overextended branches to enhance its shape and reduce the risk of branch failure.",
+        "Large oak tree pruned to remove deadwood and reduce the overextended limbs to alleviate the risk of branch failure.",
       imageClassName: "[&_img]:object-[center_35%]",
     },
   
@@ -203,7 +209,7 @@ const Gallery = () => {
               <div className="p-4">
                 <h3 className="font-semibold text-foreground mb-1 text-sm">{image.title}</h3>
                 <p className="text-xs text-muted-foreground mb-2">{image.location}</p>
-                <p className="text-xs text-muted-foreground line-clamp-2">{image.description}</p>
+                <p className="text-xs text-muted-foreground">{image.description}</p>
               </div>
             </Card>
           ))}
@@ -212,8 +218,8 @@ const Gallery = () => {
         {/* Modal for Image Viewing */}
         {selectedImage !== null && activeImage && (
           <Dialog open={selectedImage !== null} onOpenChange={closeModal}>
-            <DialogContent className="w-screen h-screen max-w-none p-0 bg-black/95 border-0 sm:max-w-4xl sm:h-auto">
-              <div className="relative w-full h-full">
+            <DialogContent className="fixed inset-0 left-0 top-0 z-50 grid h-[100dvh] max-h-[100dvh] w-screen max-w-none translate-x-0 translate-y-0 grid-rows-[1fr_auto] gap-0 overflow-hidden border-0 bg-black p-0 sm:inset-auto sm:left-[50%] sm:top-[50%] sm:block sm:h-auto sm:max-h-none sm:w-full sm:max-w-4xl sm:translate-x-[-50%] sm:translate-y-[-50%] sm:overflow-visible sm:bg-black/95">
+              <div className="relative flex h-full min-h-0 w-full flex-col overflow-hidden sm:block sm:h-auto sm:overflow-visible">
                 {/* Close Button */}
                 <Button
                   variant="ghost"
@@ -224,46 +230,63 @@ const Gallery = () => {
                   <X className="h-6 w-6" />
                 </Button>
 
-                {/* Navigation Buttons */}
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
-                  onClick={() => navigateImage('prev')}
-                >
-                  <ChevronLeft className="h-8 w-8" />
-                </Button>
+                {/* Image area — bounded by remaining space above the caption on mobile */}
+                <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden px-12 pt-14 pb-2 sm:h-[85vh] sm:flex-none sm:overflow-visible sm:p-4">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute left-2 top-1/2 z-50 -translate-y-1/2 text-white hover:bg-white/20 sm:left-4"
+                    onClick={() => navigateImage('prev')}
+                  >
+                    <ChevronLeft className="h-8 w-8" />
+                  </Button>
 
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
-                  onClick={() => navigateImage('next')}
-                >
-                  <ChevronRight className="h-8 w-8" />
-                </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-2 top-1/2 z-50 -translate-y-1/2 text-white hover:bg-white/20 sm:right-4"
+                    onClick={() => navigateImage('next')}
+                  >
+                    <ChevronRight className="h-8 w-8" />
+                  </Button>
 
-                {/* Image */}
-                <div className="flex items-center justify-center w-full h-full sm:h-[85vh] p-4">
-                  <div className="relative inline-block leading-none">
+                  <div className="flex h-full w-full min-h-0 min-w-0 items-center justify-center sm:relative sm:inline-block sm:h-auto sm:w-auto">
                     <img
                       src={activeImage.image}
                       alt={activeImage.title}
-                      className={
+                      className={cn(
+                        "block object-contain",
+                        "max-h-full max-w-full h-auto w-auto",
+                        "max-sm:object-top",
+                        "sm:max-h-none sm:max-w-none sm:w-[min(calc(100vw-2rem),56rem)] sm:h-[min(calc(100vh-2rem),calc(85vh-2rem))]",
                         "modalImageClassName" in activeImage && activeImage.modalImageClassName
-                          ? activeImage.modalImageClassName
-                          : "block object-contain w-[min(calc(100vw-2rem),56rem)] h-[min(calc(100vh-2rem),calc(85vh-2rem))]"
-                      }
+                      )}
                     />
 
-                    {/* Image Info */}
-                    <div className="absolute bottom-0 left-0 right-0 text-white pointer-events-none">
+                    {/* Desktop caption overlay — unchanged */}
+                    <div className="absolute bottom-0 left-0 right-0 hidden text-white pointer-events-none sm:block">
                       <div className="bg-gradient-to-t from-black/80 to-transparent px-4 sm:px-6 pt-6 pb-4">
                         <h3 className="text-xl font-semibold mb-1">{activeImage.title}</h3>
                         <p className="text-sm text-white/80 mb-2">{activeImage.location}</p>
-                        <p className="text-sm text-white/70 line-clamp-2">{activeImage.description}</p>
+                        <p className="text-sm text-white/70 leading-relaxed">{activeImage.description}</p>
                       </div>
                     </div>
+                  </div>
+                </div>
+
+                {/* Mobile caption panel — always reserved at the bottom */}
+                <div className="flex h-[9rem] shrink-0 flex-col border-t border-white/10 bg-black px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] sm:hidden">
+                  <h3 className="shrink-0 text-base font-semibold leading-snug text-white line-clamp-1">
+                    {activeImage.title}
+                  </h3>
+                  <p className="mt-0.5 shrink-0 text-xs text-white/65">{activeImage.location}</p>
+                  <div className="mt-2 flex min-h-0 flex-1 flex-col" key={activeImage.id}>
+                    <ReviewCarouselText
+                      text={activeImage.description}
+                      expandThreshold={GALLERY_MOBILE_EXPAND_THRESHOLD}
+                      previewLength={GALLERY_MOBILE_PREVIEW_LENGTH}
+                      textClassName="text-sm leading-relaxed text-white/80"
+                    />
                   </div>
                 </div>
               </div>

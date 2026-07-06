@@ -17,6 +17,9 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+        env:
+          # Repository variable SITE_URL → absolute URLs in sitemap.xml (Settings → Actions → Variables)
+          VITE_SITE_URL: ${{ vars.SITE_URL }}
 
       - uses: cloudflare/wrangler-action@v3
         with:

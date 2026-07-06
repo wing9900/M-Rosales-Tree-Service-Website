@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /** Reviews longer than this get a Read more toggle. */
-export const REVIEW_EXPAND_THRESHOLD = 400;
+const REVIEW_EXPAND_THRESHOLD = 400;
 
 /** Collapsed preview — slightly shorter than full reviews to leave room for Read more. */
 const REVIEW_PREVIEW_LENGTH = 285;
@@ -23,12 +23,20 @@ function previewAtWordBoundary(text: string, maxLength: number): string {
 
 type ReviewCarouselTextProps = {
   text: string;
+  expandThreshold?: number;
+  previewLength?: number;
+  textClassName?: string;
 };
 
-export function ReviewCarouselText({ text }: ReviewCarouselTextProps) {
+export function ReviewCarouselText({
+  text,
+  expandThreshold = REVIEW_EXPAND_THRESHOLD,
+  previewLength = REVIEW_PREVIEW_LENGTH,
+  textClassName = "text-sm text-muted-foreground leading-relaxed",
+}: ReviewCarouselTextProps) {
   const [expanded, setExpanded] = useState(false);
-  const isLong = text.length > REVIEW_EXPAND_THRESHOLD;
-  const displayText = isLong && !expanded ? previewAtWordBoundary(text, REVIEW_PREVIEW_LENGTH) : text;
+  const isLong = text.length > expandThreshold;
+  const displayText = isLong && !expanded ? previewAtWordBoundary(text, previewLength) : text;
 
   return (
     <div className="flex flex-col min-h-0 h-full">
@@ -40,7 +48,7 @@ export function ReviewCarouselText({ text }: ReviewCarouselTextProps) {
             : "overflow-hidden"
         )}
       >
-        <p className="text-sm text-muted-foreground leading-relaxed">{displayText}</p>
+        <p className={textClassName}>{displayText}</p>
       </div>
       {isLong && (
         <button

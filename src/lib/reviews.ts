@@ -65,7 +65,7 @@ export const FEATURED_REVIEWS: FeaturedReview[] = [
     4,
     "Victoria Perla",
     "2026-05-13",
-    "Excellent customer service! Mr.Rosales is very knowledgeable in his job,  will listen to what you want and make suggestions for the best results. 100% recommend!!",
+    "Excellent customer service! Mr. Rosales is very knowledgeable in his job, will listen to what you want and make suggestions for the best results. 100% recommend!!",
   ),
   reviewEntry(
     5,
@@ -77,7 +77,7 @@ export const FEATURED_REVIEWS: FeaturedReview[] = [
     6,
     "Robert Wilson",
     "2025-10-15",
-    "Rodrigo and his crew were amazing today. Started promptly at 800am and were finished cleaning up at 530pm. They  cut down a 50 year old water oak which had fungus growing at the base (sign of decaying roots) and which was leaning slightly towards our house. They also ground down the large stump and trimmed two live oaks. Very professional service. Every large limb was tied off and lowered to the ground gently. All branches were mulched and the trunk was cut into sections and loaded with a skid steer onto a trailer and hauled away. Even after an exhausting day, the crew were meticulous in raking and blowing all the debris and left no trace that they had been here except the mulch from the stump grinder which they offered to spread around our flower beds . Would highly recommend M. Rosales Tree Service.",
+    "Rodrigo and his crew were amazing today. Started promptly at 8:00 AM and were finished cleaning up at 5:30 PM. They cut down a 50-year-old water oak which had fungus growing at the base (sign of decaying roots) and which was leaning slightly towards our house. They also ground down the large stump and trimmed two live oaks. Very professional service. Every large limb was tied off and lowered to the ground gently. All branches were mulched and the trunk was cut into sections and loaded with a skid steer onto a trailer and hauled away. Even after an exhausting day, the crew were meticulous in raking and blowing all the debris and left no trace that they had been here except the mulch from the stump grinder which they offered to spread around our flower beds. Would highly recommend M. Rosales Tree Service.",
   ),
   reviewEntry(
     7,
@@ -113,13 +113,13 @@ export const FEATURED_REVIEWS: FeaturedReview[] = [
     12,
     "Sabrina Peng",
     "2024-10-03",
-    "I had an excellent experience with Rodrigo! They were professional, efficient, and left my back and front yard looking better than ever. The team handled the tree trimming and removal. They were punctual and cleaned up everything perfectly. I highly recommend them for any tree works. Truly a 5-star service!",
+    "I had an excellent experience with Rodrigo! They were professional, efficient, and left my back and front yard looking better than ever. The team handled the tree trimming and removal. They were punctual and cleaned up everything perfectly. I highly recommend them for any tree work. Truly a 5-star service!",
   ),
   reviewEntry(
     13,
     "Sumit Shah",
     "2024-02-06",
-    "Efficient and professional, Rodrigo and his team swiftly removed a fallen tree . Their skilled team navigated challenges with precision, ensuring a quick and safe operation. I highly recommend their services for prompt and expert tree removal.",
+    "Efficient and professional, Rodrigo and his team swiftly removed a fallen tree. Their skilled team navigated challenges with precision, ensuring a quick and safe operation. I highly recommend their services for prompt and expert tree removal.",
   ),
   reviewEntry(
     14,
@@ -131,13 +131,13 @@ export const FEATURED_REVIEWS: FeaturedReview[] = [
     15,
     "Alyson Guest",
     "2025-12-24",
-    "Rodrigo and his crew were extremely professional and easy to work with! They did a beautiful job trimming and removing my trees - I highly recommend this company",
+    "Rodrigo and his crew were extremely professional and easy to work with! They did a beautiful job trimming and removing my trees - I highly recommend this company.",
   ),
   reviewEntry(
     16,
     "Jonathan Jaramillo",
     "2024-10-08",
-    "Very professional and accomodating. The pricing was the best of three different quotes I received. Removed and cleaned everything in a few hours; very efficient. Would definitely recommend and work with again.",
+    "Very professional and accommodating. The pricing was the best of three different quotes I received. Removed and cleaned everything in a few hours; very efficient. Would definitely recommend and work with again.",
   ),
   reviewEntry(
     17,

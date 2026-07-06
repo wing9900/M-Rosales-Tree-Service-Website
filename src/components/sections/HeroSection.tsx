@@ -13,13 +13,13 @@ const HeroSection = () => {
         <img 
           src={heroImage} 
           alt={`${businessName} crew with chip truck and wood chipper`}
-          className="w-full h-full object-cover object-[center_38%] scale-[1.35] sm:object-[center_50%] sm:scale-100 lg:object-[center_48%]"
+          className="absolute left-1/2 top-1/2 h-[94%] w-[94%] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-[36%_42%] sm:inset-0 sm:left-0 sm:top-0 sm:h-full sm:w-full sm:max-w-full sm:translate-x-0 sm:translate-y-0 sm:object-[center_50%] lg:object-[center_48%]"
         />
         <div className="absolute inset-0 bg-black/[0.11]" />
       </div>
 
       <div className="relative z-10 container-custom text-center text-white flex flex-col justify-start items-center min-h-screen pt-24 sm:justify-center sm:pt-0">
-        <div className="max-w-4xl mx-auto w-full px-4 hero-content-stack">
+        <div className="max-w-4xl mx-auto w-full px-4">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 -mt-0 sm:-mt-4 animate-slide-up" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
             Professional Tree Services in{" "}
             <span className="text-orange-400 whitespace-nowrap">{BUSINESS.serviceAreaLabel}</span>
@@ -85,6 +85,12 @@ const HeroSection = () => {
               Call Now
             </CallButton>
             <Button variant="cta" size="xl" className="text-lg h-14 sm:hidden [&_svg]:!h-5 [&_svg]:!w-6" asChild style={{boxShadow: '0 4px 8px rgba(0,0,0,0.3)'}}>
+              <Link to="/contact">
+                <Calendar />
+                Get Free Estimate
+              </Link>
+            </Button>
+            <Button variant="cta" size="xl" className="hidden text-lg h-14 sm:inline-flex [&_svg]:!h-5 [&_svg]:!w-6" asChild style={{boxShadow: '0 4px 8px rgba(0,0,0,0.3)'}}>
               <Link to="/contact">
                 <Calendar />
                 Get Free Estimate

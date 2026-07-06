@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { Link } from "react-router-dom";
-import { TreePine, Zap, Stethoscope, Axe, TreeDeciduous, Construction, Cog, Phone, Calendar } from "lucide-react";
+import { Zap, Stethoscope, Axe, TreeDeciduous, Construction, Cog, Phone, Calendar } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 const treeTrimmingImg = "/assets/07703b17-ad7c-42e2-a727-4057abe7dd4d.png";
 const treeRemovalImg = "/assets/802ad6a4-82a4-43eb-9e60-79801d59f56e.png";

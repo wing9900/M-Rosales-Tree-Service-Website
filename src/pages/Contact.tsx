@@ -88,14 +88,14 @@ const Contact = () => {
                         <div className="grid md:grid-cols-2 gap-6">
                           <div>
                             <Label htmlFor="name" className="text-gray-700 font-medium mb-2 block">
-                              First (Required)
+                              First Name (Required)
                             </Label>
                             <Input id="name" type="text" value={formData.firstName} onChange={e => handleChange("firstName", e.target.value)} required className="h-12 bg-gray-100 border-gray-200 text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="First Name" />
                           </div>
                           
                           <div>
                             <Label htmlFor="lastName" className="text-gray-700 font-medium mb-2 block">
-                              Last (Required)
+                              Last Name (Required)
                             </Label>
                             <Input id="lastName" type="text" value={formData.lastName} onChange={e => handleChange("lastName", e.target.value)} required className="h-12 bg-gray-100 border-gray-200 text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Last Name" />
                           </div>
@@ -190,7 +190,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Hours of Operation</h3>
-                    <p className="text-gray-600 whitespace-pre-line">{BUSINESS.hoursDetail}</p>
+                    <p className="text-gray-600 whitespace-pre-line">{BUSINESS.hours}</p>
                   </div>
                 </div>
               </div>

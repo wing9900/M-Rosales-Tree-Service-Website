@@ -7,7 +7,6 @@ export const BUSINESS = {
   fullAddress: "1929 Coulcrest Dr, Houston, TX 77055",
   serviceAreaLabel: "Houston, TX",
   hours: "Monday - Saturday: 8:00 AM - 6:00 PM",
-  hoursDetail: "Monday - Saturday: 8:00 AM - 6:00 PM",
   ownerName: "Rodrigo",
   yearsExperience: "14+",
   googleRating: "5.0",
@@ -18,8 +17,9 @@ export const BUSINESS = {
   reviewWidget: "Trusted Across Greater Houston",
   serviceAreasText: "Houston, Katy, Sugar Land, and surrounding areas",
   facebookUrl: "https://www.facebook.com/MRosalesTreeServices",
+  /** Google Maps iframe embed — address-based URL for 1929 Coulcrest Dr, Houston, TX 77055 */
   mapsEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.8!2d-95.494!3d29.789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c5b5c5c5c5c5%3A0x0!2s1929%20Coulcrest%20Dr%2C%20Houston%2C%20TX%2077055!5e0!3m2!1sen!2sus!4v1634567890123!5m2!1sen!2sus",
+    "https://maps.google.com/maps?q=1929+Coulcrest+Dr,+Houston,+TX+77055&hl=en&z=16&output=embed",
 } as const;
 
 export const ASSETS = {

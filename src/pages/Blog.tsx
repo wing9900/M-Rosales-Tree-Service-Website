@@ -10,7 +10,6 @@ const Blog = () => {
     {
       id: 1,
       title: "Don't Let Hurricane Season Catch You Off Guard: Essential Tree Services for Houston Homes",
-      excerpt: "",
       date: "2025-08-15",
       readTime: "5 min read",
       author: "Tree Care Expert",
@@ -81,7 +80,6 @@ const Blog = () => {
     {
       id: 2,
       title: "Is My Tree Sick? 5 Warning Signs Houston Homeowners Shouldn't Ignore",
-      excerpt: "",
       date: "2025-03-10",
       readTime: "4 min read",
       author: "M Rosales Tree Service Team",
@@ -268,9 +266,6 @@ const Blog = () => {
                       <span>{post.readTime}</span>
                     </div>
                   </div>
-                  
-                  <p className="text-muted-foreground leading-relaxed mt-4" 
-                     dangerouslySetInnerHTML={{ __html: post.excerpt }} />
                 </CardHeader>
                 
                 <CardContent className="prose prose-lg max-w-none">

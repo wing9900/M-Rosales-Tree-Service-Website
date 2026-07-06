@@ -232,16 +232,13 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/20">
         <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-sm text-primary-foreground/60 mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-sm text-primary-foreground/60">
               © 2026 <CompanyName />. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
               <Link to="/privacy" className="text-primary-foreground/60 hover:text-primary-foreground" onClick={(e) => handleLinkClick(e, "/privacy")}>
                 Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-primary-foreground/60 hover:text-primary-foreground" onClick={(e) => handleLinkClick(e, "/terms")}>
-                Terms of Service
               </Link>
               <Link to="/sitemap" className="text-primary-foreground/60 hover:text-primary-foreground" onClick={(e) => handleLinkClick(e, "/sitemap")}>
                 Sitemap
