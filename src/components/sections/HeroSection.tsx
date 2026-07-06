@@ -19,7 +19,7 @@ const HeroSection = () => {
       </div>
 
       <div className="relative z-10 container-custom text-center text-white flex flex-col justify-start items-center min-h-screen pt-24 sm:justify-center sm:pt-0">
-        <div className="max-w-4xl mx-auto w-full px-4">
+        <div className="max-w-4xl mx-auto w-full px-4 hero-content-stack">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 -mt-0 sm:-mt-4 animate-slide-up" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
             Professional Tree Services in{" "}
             <span className="text-orange-400 whitespace-nowrap">{BUSINESS.serviceAreaLabel}</span>
@@ -40,6 +40,7 @@ const HeroSection = () => {
             </span>
           </p>
 
+          <div className="hero-cta-cluster">
           {/* Google Reviews Widget */}
           <div className="flex flex-col items-center justify-center mb-4 sm:mb-8 animate-fade-in">
             <div className="flex items-center gap-2.5 bg-white rounded-full px-3.5 py-2 shadow-lg scale-100 sm:scale-[1.05]">
@@ -83,12 +84,13 @@ const HeroSection = () => {
             <CallButton variant="cta" size="xl" className="text-lg h-14 shadow-[0_4px_8px_rgba(0,0,0,0.3)] [&_svg]:!h-5 [&_svg]:!w-5" showIcon={true}>
               Call Now
             </CallButton>
-            <Button variant="cta" size="xl" className="text-lg h-14 [&_svg]:!h-5 [&_svg]:!w-6" asChild style={{boxShadow: '0 4px 8px rgba(0,0,0,0.3)'}}>
+            <Button variant="cta" size="xl" className="text-lg h-14 sm:hidden [&_svg]:!h-5 [&_svg]:!w-6" asChild style={{boxShadow: '0 4px 8px rgba(0,0,0,0.3)'}}>
               <Link to="/contact">
                 <Calendar />
                 Get Free Estimate
               </Link>
             </Button>
+          </div>
           </div>
 
         </div>

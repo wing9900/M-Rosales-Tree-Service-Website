@@ -13,7 +13,6 @@ interface OptimizedImageProps {
   onLoad?: () => void;
   onError?: () => void;
   blur?: boolean;
-  quality?: number;
   fit?: "cover" | "contain";
 }
 
@@ -29,7 +28,6 @@ const OptimizedImage = ({
   onLoad,
   onError,
   blur = true,
-  quality = 85,
   fit = "cover"
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -83,7 +81,6 @@ const OptimizedImage = ({
         <div className="absolute inset-0 bg-muted animate-pulse" />
       )}
       
-      {/* Actual image */}
       {isInView && (
         <img
           src={src}

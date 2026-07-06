@@ -1,17 +1,24 @@
-# Leading Care Tree Service Website
+# M Rosales Tree Service Website
 
-This is a professional tree service company website built with React + TypeScript + Vite.
+Professional tree service company website built with React, TypeScript, and Vite.
 
 ## Getting Started
 
 **Development**
 
 Run the development server:
+
 ```bash
 npm run dev
 ```
 
-The website will be available at http://localhost:8080
+The website will be available at http://localhost:9080
+
+For mobile testing over a public link:
+
+```bash
+npm run dev:tunnel
+```
 
 **Build for Production**
 
@@ -19,9 +26,9 @@ The website will be available at http://localhost:8080
 npm run build
 ```
 
-## What technologies are used for this project?
+Production deploys to Cloudflare via GitHub Actions on pushes to `main`.
 
-This project is built with:
+## Tech Stack
 
 - Vite
 - TypeScript

@@ -8,12 +8,10 @@ const COMPANY_STORAGE_KEY = "ghl_company";
 
 type BusinessNameContextType = {
   businessName: string;
-  isFromUrl: boolean;
 };
 
 const BusinessNameContext = createContext<BusinessNameContextType>({
   businessName: DEFAULT_BUSINESS_NAME,
-  isFromUrl: false,
 });
 
 export function useBusinessName() {
@@ -27,7 +25,7 @@ export function useBusinessName() {
 export function BusinessNameProvider({ children }: { children: React.ReactNode }) {
   const [searchParams] = useSearchParams();
   const [businessName, setBusinessName] = useState(DEFAULT_BUSINESS_NAME);
-  const [isFromUrl, setIsFromUrl] = useState(false);
+  const [useCustomTitle, setUseCustomTitle] = useState(false);
 
   // Extract company from URL (?company=... from GHL), or bizname for backward compat, or sessionStorage
   useEffect(() => {
@@ -36,27 +34,27 @@ export function BusinessNameProvider({ children }: { children: React.ReactNode }
       if (companyFromUrl && companyFromUrl.trim() !== "") {
         const decoded = decodeURIComponent(companyFromUrl.trim());
         setBusinessName(decoded);
-        setIsFromUrl(true);
+        setUseCustomTitle(true);
         sessionStorage.setItem(COMPANY_STORAGE_KEY, decoded);
       } else {
         const stored = sessionStorage.getItem(COMPANY_STORAGE_KEY);
         if (stored && stored.trim() !== "") {
           setBusinessName(stored);
-          setIsFromUrl(true);
+          setUseCustomTitle(true);
         } else {
           setBusinessName(DEFAULT_BUSINESS_NAME);
-          setIsFromUrl(false);
+          setUseCustomTitle(false);
         }
       }
     } catch {
       setBusinessName(DEFAULT_BUSINESS_NAME);
-      setIsFromUrl(false);
+      setUseCustomTitle(false);
     }
   }, [searchParams]);
 
   // Update document title
   useEffect(() => {
-    if (isFromUrl) {
+    if (useCustomTitle) {
       document.title = `${businessName} - ${TITLE_SUFFIX}`;
     } else {
       document.title = DEFAULT_TITLE;
@@ -64,9 +62,9 @@ export function BusinessNameProvider({ children }: { children: React.ReactNode }
     return () => {
       document.title = DEFAULT_TITLE;
     };
-  }, [businessName, isFromUrl]);
+  }, [businessName, useCustomTitle]);
 
-  const value = useMemo(() => ({ businessName, isFromUrl }), [businessName, isFromUrl]);
+  const value = useMemo(() => ({ businessName }), [businessName]);
 
   return (
     <BusinessNameContext.Provider value={value}>

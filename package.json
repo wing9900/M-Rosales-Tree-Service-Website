@@ -10,7 +10,6 @@
     "dev:tunnel": "npx --yes cloudflared tunnel --url http://127.0.0.1:9080",
     "dev:open": "vite --open",
     "build": "vite build",
-    "build:ci": "npm ci && npm run build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"

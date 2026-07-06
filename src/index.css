@@ -356,3 +356,13 @@
   }
 }
 
+/* Hero: iOS large phones only (~430px, e.g. iPhone Pro Max). Excludes Android, tablet, desktop. */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 639px) and (min-width: 420px) and (max-width: 440px) {
+    /* Moderate gap below subtext — clears crew without pinning to screen bottom */
+    .hero-cta-cluster {
+      margin-top: 3.25rem;
+    }
+  }
+}
+

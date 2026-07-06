@@ -27,7 +27,33 @@
 - CSS bundle reduced ~20 KB after unused Tailwind classes were dropped
 
 ### Maintenance scripts (dev only, not wired to npm)
-- `scripts/copy-gallery-photos.mjs`, `crop-about-us-photo.mjs`, `fetch-reviews.mjs`, `scrape-reviews.mjs`, `download-faces.mjs`
+- ~~`scripts/copy-gallery-photos.mjs`, `crop-about-us-photo.mjs`, `fetch-reviews.mjs`, `scrape-reviews.mjs`, `download-faces.mjs`~~ **Removed July 6, 2026** — see `docs/SESSION_NOTES_2026-07-06.md`
+
+---
+
+## July 6, 2026 — Mobile hero + low-risk dead code cleanup
+
+Full session notes: **`docs/SESSION_NOTES_2026-07-06.md`**
+
+### Mobile hero (PR #5, branch `cursor/mobile-hero-image-cta-ed51`)
+- Hero image crop on mobile: `object-[34%_50%]` (was `object-[center_52%]`) to show full truck and crew
+- Desktop/tablet crop unchanged (`sm:` / `lg:` breakpoints)
+- “Get Free Estimate” hero button: mobile only via `sm:hidden`; desktop hero shows “Call Now” only
+
+### Low-risk cleanup (PR #6, branch `cursor/low-risk-dead-code-cleanup-ed51`)
+- Removed 33 unused npm packages (790 → 304 installed); dropped Sonner, next-themes, React Query scaffolding
+- Deleted entire `scripts/` folder and stale `google-reviews.json`
+- Deleted `docs/HEADER_LAYOUT_NOTES.md`; added session notes doc
+- Removed dead WebP stub in `optimized-image.tsx`, unused `BUSINESS` address fields, `isFromUrl` context export
+- Fixed README (project name, port 9080); pruned invalid Tailwind content globs
+- Removed unused `build:ci` npm script
+
+### iOS Pro Max hero CTA position (PR #7, branch `cursor/hero-ios-promax-cta-ed51`)
+- Wrapped reviews pill + CTA buttons in `.hero-cta-cluster` in `HeroSection.tsx`
+- iOS large phones only (~420–440px width): `margin-top: 3.25rem` on cluster to reveal crew in hero photo
+- Excludes Android, tablet, desktop via `@supports (-webkit-touch-callout: none)` + width/breakpoint rules
+- **Iteration history:** v1 no effect (900px height rule); v2 overcorrected (`margin-top: auto`); v3 current fixed gap
+- See `docs/SESSION_NOTES_2026-07-06.md` § PR #7 for full rollback and fine-tuning guide
 
 ---
 
