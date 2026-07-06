@@ -34,7 +34,7 @@ const HeroSection = () => {
               <span className="block">Free consultations</span>
               <span className="block">{BUSINESS.yearsExperience} years serving Houston</span>
             </span>
-            {/* Desktop: two lines so 14+ fits cleanly */}
+            {/* Desktop: two lines so 23+ fits cleanly */}
             <span className="hidden sm:block mt-2 font-bold tracking-wide" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9)'}}>
               <span className="block">{BUSINESS.heroSubline}</span>
               <span className="block mt-1">{BUSINESS.yearsExperience} years serving Houston</span>

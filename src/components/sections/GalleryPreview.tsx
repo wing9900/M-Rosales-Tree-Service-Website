@@ -13,7 +13,7 @@ const GalleryPreview = () => {
   const galleryItems = [
     {
       title: "Professional Trimming",
-      image: "/assets/11a3b252-343e-454b-8e6e-cd2af1d8bd6a.png",
+      image: "/assets/11a3b252-343e-454b-8e6e-cd2af1d8bd6a.jpg",
       description: "Large hedge trimming completed for a resident in Katy, TX",
       detailedDescription: "In the well-manicured neighborhoods of Katy, a crisp, clean hedge line is essential for curb appeal. This client's boxwood hedge had become overgrown and uneven due to the intense Texas summer sun and rapid growth. Our team performed a professional shaping and trimming, restoring sharp, geometric lines and uniform height. We carefully removed all clippings, leaving the property looking pristine.\n\nThe result: A perfectly sculpted hedge that dramatically enhances the home's aesthetic, promotes healthier, denser growth, and restores a sense of order and elegance to the landscape.",
       project: "Hedge Shaping in Katy, TX",
@@ -38,7 +38,7 @@ const GalleryPreview = () => {
     },
     {
       title: "Stump Grinding Service",
-      image: "/assets/83e4a60f-a3ad-4031-b013-6de73703af69.png",
+      image: "/assets/83e4a60f-a3ad-4031-b013-6de73703af69.jpg",
       description: "Large stump removal and cleanup in Conroe, TX",
       detailedDescription: "Following the removal of a large tree, this Conroe homeowner was left with a stubborn, oversized stump in their backyard. It was a constant obstacle for mowing and a tripping hazard for their children. Our team brought in a powerful stump grinder and obliterated the stump, grinding it well below the ground's surface. We then raked the area clean, hauled away the excess debris, and filled the hole with topsoil.\n\nThe result: The yard space was completely reclaimed. The lawn is now level, safe, and easy to maintain, with no trace that a large tree and stump were ever there.",
       project: "Stump Grinding in Conroe, TX",
@@ -46,7 +46,7 @@ const GalleryPreview = () => {
     },
     {
       title: "Professional Tree Pruning",
-      image: "/assets/9b457fbe-2c47-4b38-a85e-5b87bc017dec.png",
+      image: "/assets/9b457fbe-2c47-4b38-a85e-5b87bc017dec.jpg",
       description: "Crown thinning and elevation project in Houston, TX",
       detailedDescription: "The magnificent live oak on this Houston property was casting dense shade, causing the lawn below to struggle. Its lower branches were also encroaching on the driveway. Our trained crew performed a thorough crown thinning, selectively removing branches to improve airflow and allow dappled sunlight to penetrate the canopy. We also elevated the crown, providing ample clearance for vehicles and pedestrians.\n\nThe result: A healthier, more beautiful tree that is now more resilient to Houston's high winds, a brighter lawn that can thrive, and safe, usable space beneath the canopy.",
       project: "Professional Tree Pruning in Houston, TX",
@@ -54,7 +54,7 @@ const GalleryPreview = () => {
     },
     {
       title: "Professional Lot Clearing",
-      image: "/assets/f9d7952b-990f-4d19-85ca-4612d04564da.png",
+      image: "/assets/f9d7952b-990f-4d19-85ca-4612d04564da.jpg",
       description: "Comprehensive lot clearing project in Houston, TX",
       detailedDescription: "This client was preparing to build a new house on a densely forested and unusable section of their large Houston lot. The area was covered with underbrush, invasive species, and small, undesirable trees. Our crew brought in specialized equipment to clear the entire footprint of the new project. We cleared, chipped, and hauled away all debris, leaving a clean, graded site.\n\nThe result: An unusable, overgrown area was transformed into a build-ready site in just a few days, allowing the client to move forward with their construction project on a clean, professional foundation.",
       project: "Professional Lot Clearing in Houston, TX",

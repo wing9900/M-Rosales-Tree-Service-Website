@@ -90,7 +90,7 @@ const About = () => {
                 <Award className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{BUSINESS.yearsExperience} Years Experience</h3>
                 <p className="text-sm text-muted-foreground">
-                  Over a decade serving Houston with tree removal, trimming, stump grinding, and lot clearing
+                  Serving Houston for over {BUSINESS.yearsExperience.replace("+", "")} years with tree removal, trimming, stump grinding, and lot clearing
                 </p>
               </CardContent>
             </Card>

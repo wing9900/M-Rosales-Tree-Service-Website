@@ -36,7 +36,7 @@ const Gallery = () => {
       title: "Professional Lot Clearing",
       category: "Lot Clearing",
       location: "Houston, TX",
-      image: "/assets/c560043f-b9f2-45db-bea6-329e65825c95.png",
+      image: "/assets/c560043f-b9f2-45db-bea6-329e65825c95.jpg",
       description: "Comprehensive lot clearing project showcasing our professional forest management services."
     },
     {
@@ -44,7 +44,7 @@ const Gallery = () => {
       title: "Mature Tree Preservation",
       category: "Tree Preservation",
       location: "Sugar Land, TX",
-      image: "/assets/5944f598-0061-466f-8e06-320c8005941e.png",
+      image: "/assets/5944f598-0061-466f-8e06-320c8005941e.jpg",
       description: "Beautiful example of how proper tree care enhances property value and curb appeal."
     },
      {
@@ -52,7 +52,7 @@ const Gallery = () => {
       title: "Landscape Design Integration",
       category: "Landscape Design",
       location: "Houston, TX",
-      image: "/assets/eda396dd-d8a3-4d24-9117-15aaad371689.png",
+      image: "/assets/eda396dd-d8a3-4d24-9117-15aaad371689.jpg",
       description: "Professional integration of tree care with landscape design and garden features."
     },
     {
@@ -60,7 +60,7 @@ const Gallery = () => {
       title: "Hedge Trimming & Shaping",
       category: "Hedge Trimming",
       location: "Katy, TX",
-      image: "/assets/de6067fd-0835-4fd1-9439-92ef3b8ef3df.png",
+      image: "/assets/de6067fd-0835-4fd1-9439-92ef3b8ef3df.jpg",
       description: "Precision hedge trimming and landscape shaping for residential properties."
     },
     {
@@ -68,7 +68,7 @@ const Gallery = () => {
       title: "Tree Establishment",
       category: "Tree Care",
       location: "Conroe, TX",
-      image: "/assets/e0fa01c9-67f7-4b35-9696-dd91d85fc80e.png",
+      image: "/assets/e0fa01c9-67f7-4b35-9696-dd91d85fc80e.jpg",
       description: "Expert care establishing a young tree and maximizing its odds of success in a residential landscape setting."
     },
     {
@@ -76,7 +76,7 @@ const Gallery = () => {
       title: "Vista Pruning",
       category: "Tree Pruning",
       location: "The Woodlands, TX",
-      image: "/assets/8b7ff4ea-2009-4747-934a-12ebcf276408.png",
+      image: "/assets/8b7ff4ea-2009-4747-934a-12ebcf276408.jpg",
       description: "Professional pruning and maintenance of a mature oak tree for optimal health, safety, and view enjoyment."
     },
     {
@@ -84,7 +84,7 @@ const Gallery = () => {
       title: "Pruning For House Clearance",
       category: "Tree Pruning",
       location: "Houston, TX",
-      image: "/assets/gallery/tree-pruning-house-clearance-pear.png",
+      image: "/assets/gallery/tree-pruning-house-clearance-pear.jpg",
       description: "Ornamental pear trees pruned to remove dead branches, provide clearance of the client's house, and enhance their overall shape.",
       imageClassName: "[&_img]:object-[center_40%]",
     },
@@ -93,7 +93,7 @@ const Gallery = () => {
       title: "Structural Clearance Tree Pruning",
       category: "Tree Pruning",
       location: "Houston, TX",
-      image: "/assets/gallery/tree-pruning-house-clearance-canopy.png",
+      image: "/assets/gallery/tree-pruning-house-clearance-canopy.jpg",
       description: "Pruned and thinned this tree's canopy to reduce the sail effect and to provide structural clearance.",
       imageClassName: "[&_img]:object-[center_35%]",
     },
@@ -102,7 +102,7 @@ const Gallery = () => {
       title: "Large Tree Pruning In Front Yard",
       category: "Tree Pruning",
       location: "Houston, TX",
-      image: "/assets/gallery/large-tree-pruning-front-yard.png",
+      image: "/assets/gallery/large-tree-pruning-front-yard.jpg",
       description:
         "Large oak tree pruned to remove deadwood and reduce the overextended limbs to alleviate the risk of branch failure.",
       imageClassName: "[&_img]:object-[center_35%]",
@@ -113,7 +113,7 @@ const Gallery = () => {
       title: "Forest Management",
       category: "Forest Management",
       location: "Rosenberg, TX",
-      image: "/assets/9b409e51-e319-4d2f-a64f-0db55d5b4e73.png",
+      image: "/assets/9b409e51-e319-4d2f-a64f-0db55d5b4e73.jpg",
       description: "Large-scale forest management and selective clearing for residential developments."
     }
   ];

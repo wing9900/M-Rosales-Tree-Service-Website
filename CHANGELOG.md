@@ -1,5 +1,36 @@
 # Changelog
 
+## July 6, 2026 — JPEG asset migration, years-in-business update, hero image fixes
+
+### Years in business (BBB)
+- **`yearsExperience`:** `14+` → **`23+`** in `business.ts` (single source of truth).
+- **About page:** “Over a decade…” → dynamic copy using `BUSINESS.yearsExperience` (23 years).
+- **Hero / FAQ / footer / gallery stats:** All use `BUSINESS.yearsExperience` — update automatically.
+- **Unchanged:** Verbatim Google review quotes that mention “20 years,” “decade,” etc. (real customer wording).
+
+### Photo assets — PNG → JPEG migration
+- **Converted 39 job/service photos** to JPEG (quality 88) where file size dropped vs PNG.
+- **Kept as PNG** when JPEG was same size or larger: `business-logo.png`, `emergency-tree-service.png`, `before-photo.png`, `after-photo.png`, stump-grinding service card (`87ea87c4-…png`), `tree-removal-between-houses.png`, `tree-removal-by-powerlines.png`.
+- **Updated paths** in `business.ts`, `galleryImages.ts`, `ServicesSection.tsx`, `GalleryPreview.tsx`, `Gallery.tsx`.
+- **Net effect:** ~23 MB PNG total → ~12 MB mixed assets (~48% smaller).
+
+### Hero & contact background images
+- **Hero:** `hero-page-photo.png` → **`hero-page-photo.jpg`** (960×720, ~162 KB). Preload in `index.html` updated to `type="image/jpeg"`.
+- **Contact:** `contact-hero.png` → **`contact-hero.jpg`** (680×382, ~75 KB).
+- **Cache bust:** `?v=3` on hero and contact URLs in `business.ts` and `index.html` so mobile browsers drop a corrupted cached file from an earlier failed upscale attempt.
+- **Hero mobile CSS unchanged:** `object-[34%_50%]` on mobile; desktop crops unchanged.
+
+### Image experiments (documented — not in final deploy state)
+- **Real-ESRGAN AI upscale (attempted):** Produced scrambled vertical tile artifacts on this GPU; **reverted**. Do not use `realesrgan-ncnn-vulkan` on RTX 5070 without verifying output.
+- **Sharp 2× upscale + sharpen (attempted):** No tile glitches, but amplified compression blocks on retina mobile; **reverted** to original-resolution exports.
+- **Safe path for better hero quality:** Replace with original high-res photos from camera, or preview in Upscayl before committing files.
+
+### Not changed (deferred)
+- `ownerName: "Rodrigo"` and hardcoded “Rodrigo” in `serviceAreasContent.ts` / review quotes — accuracy review deferred.
+- Contact form mock backend, Emergency H1 em dash, ESLint errors.
+
+---
+
 ## July 5–6, 2026 — Gallery mobile fixes, cleanup, legal pages, and deploy SEO
 
 ### Gallery (`/gallery`) — mobile caption layout

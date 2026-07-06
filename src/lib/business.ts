@@ -8,7 +8,7 @@ export const BUSINESS = {
   serviceAreaLabel: "Houston, TX",
   hours: "Monday - Saturday: 8:00 AM - 6:00 PM",
   ownerName: "Rodrigo",
-  yearsExperience: "14+",
+  yearsExperience: "23+",
   googleRating: "5.0",
   tagline: "Trusted tree care backed by years of experience and 5-star customer reviews.",
   trustBar: "5-Star Rated • Emergency Services Available",
@@ -24,10 +24,10 @@ export const BUSINESS = {
 
 export const ASSETS = {
   logoImage: "/assets/business-logo.png",
-  heroImage: "/assets/hero-page-photo.png",
-  contactHeroImage: "/assets/contact-hero.png",
-  aboutUsCrewImage: "/assets/gallery/about-us-crew.png",
-  safeTreeRemovalImage: "/assets/safe-tree-removal.png",
+  heroImage: "/assets/hero-page-photo.jpg?v=3",
+  contactHeroImage: "/assets/contact-hero.jpg?v=3",
+  aboutUsCrewImage: "/assets/gallery/about-us-crew.jpg",
+  safeTreeRemovalImage: "/assets/safe-tree-removal.jpg",
   emergencyTreeServiceImage: "/assets/emergency-tree-service.png",
   beforePhoto: "/assets/before-photo.png",
   afterPhoto: "/assets/after-photo.png",

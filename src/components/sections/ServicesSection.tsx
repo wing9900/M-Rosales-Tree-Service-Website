@@ -4,12 +4,12 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 import { Link } from "react-router-dom";
 import { Zap, Stethoscope, Axe, TreeDeciduous, Construction, Cog, Phone, Calendar } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-const treeTrimmingImg = "/assets/07703b17-ad7c-42e2-a727-4057abe7dd4d.png";
-const treeRemovalImg = "/assets/802ad6a4-82a4-43eb-9e60-79801d59f56e.png";
+const treeTrimmingImg = "/assets/07703b17-ad7c-42e2-a727-4057abe7dd4d.jpg";
+const treeRemovalImg = "/assets/802ad6a4-82a4-43eb-9e60-79801d59f56e.jpg";
 const stumpGrindingImg = "/assets/87ea87c4-add1-4853-84ee-abb9073b13fc.png";
-const healthManagementImg = "/assets/36151a3f-4e2e-4504-959e-8fcd51f78514.png";
-const emergencyServiceImg = "/assets/b13aa126-a0ea-4c35-8017-163108994333.png";
-const landClearingImg = "/assets/0ed1b619-8b61-460d-b942-7a6166059bb9.png";
+const healthManagementImg = "/assets/36151a3f-4e2e-4504-959e-8fcd51f78514.jpg";
+const emergencyServiceImg = "/assets/b13aa126-a0ea-4c35-8017-163108994333.jpg";
+const landClearingImg = "/assets/0ed1b619-8b61-460d-b942-7a6166059bb9.jpg";
 const ServicesSection = () => {
   const services = [{
     title: "Tree Trimming & Pruning",
