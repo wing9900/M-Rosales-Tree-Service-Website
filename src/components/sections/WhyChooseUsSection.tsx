@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Heart, Clock, Leaf, Calendar, Home, Pencil, MessageSquare, Wrench, Star, TreePine, Shield, ChevronLeft, ChevronRight } from "lucide-react";
+import { MapPin, Clock, Leaf, Calendar, Home, Pencil, MessageSquare, Wrench, Star, TreePine, Shield } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useEffect, useRef, useState } from "react";
 import { FEATURED_REVIEWS } from "@/lib/reviews";
@@ -8,6 +8,82 @@ const WhyChooseUsSection = () => {
   const [api, setApi] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
   const intervalRef = useRef(null);
+  const equipmentPhotoRef = useRef<HTMLDivElement>(null);
+  const [cardsVisible, setCardsVisible] = useState(false);
+  const cardsVisibleRef = useRef(false);
+
+  useEffect(() => {
+    const photo = equipmentPhotoRef.current;
+    if (!photo) return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+    const easeOutCubic = (value: number) => 1 - Math.pow(1 - value, 3);
+
+    const revealSection = () => {
+      photo.style.opacity = "1";
+      photo.style.transform = "translateX(0) scale(1)";
+      setCardsVisible(true);
+      cardsVisibleRef.current = true;
+    };
+
+    if (prefersReducedMotion) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) return;
+          revealSection();
+          observer.disconnect();
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(photo);
+      return () => observer.disconnect();
+    }
+
+    let rafId = 0;
+
+    const updatePhotoFromScroll = () => {
+      const rect = photo.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const animationStart = viewportHeight * 0.9;
+      const animationEnd = viewportHeight * 0.34;
+      const rawProgress = clamp(
+        (animationStart - rect.top) / (animationStart - animationEnd),
+        0,
+        1
+      );
+      const progress = easeOutCubic(rawProgress);
+
+      photo.style.opacity = String(progress);
+      photo.style.transform = `translateX(${-12 * (1 - progress)}%) scale(${0.96 + 0.04 * progress})`;
+
+      const shouldShowCards = rawProgress >= 0.82;
+      if (shouldShowCards !== cardsVisibleRef.current) {
+        cardsVisibleRef.current = shouldShowCards;
+        setCardsVisible(shouldShowCards);
+      }
+    };
+
+    const scheduleUpdate = () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
+      rafId = window.requestAnimationFrame(() => {
+        updatePhotoFromScroll();
+        rafId = 0;
+      });
+    };
+
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate, { passive: true });
+    updatePhotoFromScroll();
+
+    return () => {
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      if (rafId) window.cancelAnimationFrame(rafId);
+      photo.style.opacity = "";
+      photo.style.transform = "";
+    };
+  }, []);
 
   useEffect(() => {
     if (!api) return;
@@ -35,63 +111,54 @@ const WhyChooseUsSection = () => {
     icon: MapPin,
     title: "Local Houston Expertise",
     description: "We know Houston and the surrounding areas. From soil types to seasonal growth patterns, our experience with local trees and landscapes ensures services that suit your neighborhood's unique needs.",
-    badge: "Local",
     bgColor: "bg-blue-50 dark:bg-blue-950/50",
     borderColor: "border-blue-200 dark:border-blue-800"
   }, {
     icon: Shield,
     title: "Safety First",
     description: "Your property and well-being are our top priorities. We follow strict safety protocols and use the latest equipment to ensure every job is completed carefully, efficiently, and without incident.",
-    badge: "Safe",
     bgColor: "bg-orange-50 dark:bg-orange-950/50",
     borderColor: "border-orange-200 dark:border-orange-800"
   }, {
     icon: Clock,
     title: "Reliability You Can Count On",
     description: "We value your time and property. Expect punctual, organized, and efficient service that minimizes disruption and keeps your yard looking its best.",
-    badge: "Dependable",
     bgColor: "bg-green-50 dark:bg-green-950/50",
     borderColor: "border-green-200 dark:border-green-800"
   }, {
     icon: Leaf,
     title: "Commitment to Sustainability",
     description: "Our methods protect both your trees and the environment. We prioritize eco-conscious techniques, including responsible pruning, recycling debris, and minimizing chemical use.",
-    badge: "Eco-Friendly",
     bgColor: "bg-emerald-50 dark:bg-emerald-950/50",
     borderColor: "border-emerald-200 dark:border-emerald-800"
   }, {
     icon: Pencil,
     title: "Personalized Service",
     description: "Every tree and yard is different. We tailor our approach to your property, offering solutions that make sense for your landscape and lifestyle.",
-    badge: "Custom",
     bgColor: "bg-stone-100 dark:bg-stone-900/50",
     borderColor: "border-stone-300 dark:border-stone-700"
   }, {
     icon: Home,
     title: "Respect for Your Property",
     description: "Your home and yard are important to you, and they're important to us. We maintain clean work areas, minimize impact, and leave your property better than we found it.",
-    badge: "Careful",
     bgColor: "bg-amber-50 dark:bg-amber-950/50",
     borderColor: "border-amber-200 dark:border-amber-800"
   }, {
     icon: MessageSquare,
     title: "Transparent Communication",
     description: "Clear estimates, straightforward explanations, and consistent updates. We make sure you know what's happening and why, every step of the way.",
-    badge: "Clear",
     bgColor: "bg-slate-50 dark:bg-slate-950/50",
     borderColor: "border-slate-200 dark:border-slate-800"
   }, {
     icon: Wrench,
     title: "Innovative Equipment & Techniques",
     description: "We invest in modern tools and proven methods to provide faster, safer, and more precise tree care for your property.",
-    badge: "Advanced",
     bgColor: "bg-blue-50 dark:bg-blue-950/50",
     borderColor: "border-indigo-200 dark:border-indigo-800"
   }, {
     icon: Calendar,
     title: "Long-Term Care Focus",
     description: "We don't just trim or remove trees. We also focus on their health and longevity with proactive care and practical advice for your property.",
-    badge: "Proactive",
     bgColor: "bg-teal-50 dark:bg-teal-950/50",
     borderColor: "border-teal-200 dark:border-teal-800"
   }];
@@ -112,10 +179,24 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
+        {/* Equipment Photo — scroll-linked horizontal drive-in */}
+        <div
+          ref={equipmentPhotoRef}
+          className="equipment-photo-scroll mb-12 md:mb-16 overflow-hidden rounded-2xl shadow-soft border border-border/50"
+        >
+          <img
+            src="/assets/sets-us-apart-equipment.png"
+            alt="M Rosales Tree Service truck and Bandit wood chipper on a residential job site in Houston"
+            className="w-full aspect-[3/2] sm:aspect-[2/1] object-cover object-[center_62%]"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
         {/* Reasons Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reasons.map((reason, index) => <Card key={reason.title} className={`hover-lift animate-fade-in shadow-soft ${reason.bgColor} ${reason.borderColor} relative overflow-hidden`} style={{
-          animationDelay: `${index * 0.1}s`
+          {reasons.map((reason, index) => <Card key={reason.title} className={`hover-lift shadow-soft ${reason.bgColor} ${reason.borderColor} relative overflow-hidden ${cardsVisible ? "animate-fade-in" : "opacity-0"}`} style={{
+          animationDelay: cardsVisible ? `${index * 0.1}s` : undefined
         }}>
               {/* Top Gradient Accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2a5a3a] via-[#3a6a4a] to-[#2a5a3a]"></div>

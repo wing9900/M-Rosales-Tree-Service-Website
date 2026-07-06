@@ -40,7 +40,7 @@ const Emergency = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              24/7 Emergency Tree Service in Houston Rapid Storm Damage Response
+              24/7 Emergency Tree Service in Houston — Rapid Storm Damage Response
             </h1>
             <p className="text-xl text-muted-foreground mb-0 max-w-3xl mx-auto leading-relaxed">
               When storms strike and trees threaten your property, you need fast, reliable, professional emergency response. We're here 24/7 to help secure your property and safely remove hazards.

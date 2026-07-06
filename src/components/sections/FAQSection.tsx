@@ -77,9 +77,16 @@ const FAQSection = () => {
                   <span className="font-semibold">{faq.question}</span>
                 </AccordionTrigger>
                 <AccordionContent className="pb-6">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  {faq.answer.includes("<a ") ? (
+                    <p
+                      className="text-muted-foreground leading-relaxed [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-primary/80"
+                      dangerouslySetInnerHTML={{ __html: faq.answer }}
+                    />
+                  ) : (
+                    <p className="text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  )}
                 </AccordionContent>
               </AccordionItem>
             ))}

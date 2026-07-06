@@ -306,6 +306,20 @@
   }
 }
 
+.equipment-photo-scroll {
+  opacity: 0;
+  transform: translateX(-12%) scale(0.96);
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .equipment-photo-scroll {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+}
+
 /* Header business name: font-weight 20% heavier than extrabold (800 → 960) */
 .header-business-name > span {
   font-weight: 960 !important;

@@ -20,7 +20,6 @@ export const VERIFIED_FACE_PHOTOS: Record<string, string> = {
   "Sabrina Peng": "/assets/reviewers/sabrina-peng.jpg",
   "Steven Hughes": "/assets/reviewers/steven-hughes.jpg",
   "David": "/assets/reviewers/david.jpg",
-  "Jack Boteler": "/assets/reviewers/jack-boteler.jpg",
 };
 
 function reviewEntry(

@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, User } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Blog = () => {
@@ -222,11 +222,6 @@ const Blog = () => {
 
   return (
     <Layout>
-      {/* SEO Meta Tags */}
-      <div className="hidden">
-        <h1><a href='/areas/houston'><strong>Houston</strong></a> Tree Service Blog - Expert Tree Care Tips & Insights</h1>
-      </div>
-      
       <div className="container-custom section-padding">
         {/* Header */}
         <header className="text-center mb-12">

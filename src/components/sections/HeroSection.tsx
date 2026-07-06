@@ -9,8 +9,6 @@ const heroImage = ASSETS.heroImage;
 const HeroSection = () => {
   const { businessName } = useBusinessName();
   return <section className="relative min-h-screen flex flex-col justify-start items-center overflow-hidden">
-      {/* Background Image */}
-      {/* ORIGINAL: object-center for all breakpoints | bg-green-900 on mobile/sm/md */}
       <div className="absolute inset-0 z-0 bg-neutral-800 overflow-hidden">
         <img 
           src={heroImage} 
@@ -20,19 +18,13 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-black/[0.11]" />
       </div>
 
-      {/* Content */}
-      {/* ORIGINAL MOBILE POSITIONING: pt-36 | mb-6, mb-4, mb-6, mb-4 | CURRENT: pt-20 */}
       <div className="relative z-10 container-custom text-center text-white flex flex-col justify-start items-center min-h-screen pt-24 sm:justify-center sm:pt-0">
         <div className="max-w-4xl mx-auto w-full px-4">
-          {/* Main Headline */}
-          {/* ORIGINAL: text-hero (which is text-4xl md:text-5xl lg:text-6xl) */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 -mt-0 sm:-mt-4 animate-slide-up" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
             Professional Tree Services in{" "}
             <span className="text-orange-400 whitespace-nowrap">{BUSINESS.serviceAreaLabel}</span>
           </h1>
 
-          {/* Subheadline */}
-          {/* ORIGINAL: text-lg sm:text-xl md:text-2xl | textShadow: '2px 2px 4px rgba(0,0,0,0.8)' */}
           <p className="text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-8 text-white max-w-3xl mx-auto animate-slide-up">
             <span className="text-white font-bold tracking-wide" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9)'}}>{BUSINESS.heroTrustLine}</span> 
             {/* Mobile: Separate lines */}
@@ -87,8 +79,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* CTA Buttons - Positioned closer to text */}
-          {/* ORIGINAL MOBILE MARGIN: mb-4 | CURRENT: mb-2 */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 animate-scale-in">
             <CallButton variant="cta" size="xl" className="text-lg h-14 shadow-[0_4px_8px_rgba(0,0,0,0.3)] [&_svg]:!h-5 [&_svg]:!w-5" showIcon={true}>
               Call Now
@@ -102,11 +92,6 @@ const HeroSection = () => {
           </div>
 
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-        
       </div>
     </section>;
 };

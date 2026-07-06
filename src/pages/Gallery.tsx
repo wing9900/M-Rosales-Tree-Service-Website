@@ -3,9 +3,9 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { OptimizedImage } from "@/components/ui/optimized-image";
-import { ArrowLeft, Eye, X, ChevronLeft, ChevronRight, Image as ImageIcon, Calendar, Phone } from "lucide-react";
+import { Eye, X, ChevronLeft, ChevronRight, Image as ImageIcon, Calendar, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BUSINESS } from "@/lib/business";
 import { STUMP_GRINDING_JOB, TREE_REMOVAL_JOBS } from "@/lib/galleryImages";
@@ -31,7 +31,7 @@ const Gallery = () => {
       category: "Lot Clearing",
       location: "Houston, TX",
       image: "/assets/c560043f-b9f2-45db-bea6-329e65825c95.png",
-      description: "Comprehensive lot clearing project showcasing our professional forest management services"
+      description: "Comprehensive lot clearing project showcasing our professional forest management services."
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ const Gallery = () => {
       category: "Tree Preservation",
       location: "Sugar Land, TX",
       image: "/assets/5944f598-0061-466f-8e06-320c8005941e.png",
-      description: "Beautiful example of how proper tree care enhances property value and curb appeal"
+      description: "Beautiful example of how proper tree care enhances property value and curb appeal."
     },
      {
       id: 7,
@@ -47,7 +47,7 @@ const Gallery = () => {
       category: "Landscape Design",
       location: "Houston, TX",
       image: "/assets/eda396dd-d8a3-4d24-9117-15aaad371689.png",
-      description: "Professional integration of tree care with landscape design and garden features"
+      description: "Professional integration of tree care with landscape design and garden features."
     },
     {
       id: 4,
@@ -55,7 +55,7 @@ const Gallery = () => {
       category: "Hedge Trimming",
       location: "Katy, TX",
       image: "/assets/de6067fd-0835-4fd1-9439-92ef3b8ef3df.png",
-      description: "Precision hedge trimming and landscape shaping for residential properties"
+      description: "Precision hedge trimming and landscape shaping for residential properties."
     },
     {
       id: 5,
@@ -63,7 +63,7 @@ const Gallery = () => {
       category: "Tree Care",
       location: "Conroe, TX",
       image: "/assets/e0fa01c9-67f7-4b35-9696-dd91d85fc80e.png",
-      description: "Expert care establishing a young tree and maximizing its odds of success in a residential landscape setting"
+      description: "Expert care establishing a young tree and maximizing its odds of success in a residential landscape setting."
     },
     {
       id: 3,
@@ -71,7 +71,35 @@ const Gallery = () => {
       category: "Tree Pruning",
       location: "The Woodlands, TX",
       image: "/assets/8b7ff4ea-2009-4747-934a-12ebcf276408.png",
-      description: "Professional pruning and maintenance of a mature oak tree for optimal health, safety, and view enjoyment"
+      description: "Professional pruning and maintenance of a mature oak tree for optimal health, safety, and view enjoyment."
+    },
+    {
+      id: 9,
+      title: "Pruning For House Clearance",
+      category: "Tree Pruning",
+      location: "Houston, TX",
+      image: "/assets/gallery/tree-pruning-house-clearance-pear.png",
+      description: "Ornamental pear trees pruned to remove dead branches, provide clearance of the client's house, and enhance their overall shape.",
+      imageClassName: "[&_img]:object-[center_40%]",
+    },
+    {
+      id: 10,
+      title: "Structural Clearance Tree Pruning",
+      category: "Tree Pruning",
+      location: "Houston, TX",
+      image: "/assets/gallery/tree-pruning-house-clearance-canopy.png",
+      description: "Pruned and thinned this tree's canopy to reduce wind sail and to provide structural clearance.",
+      imageClassName: "[&_img]:object-[center_35%]",
+    },
+    {
+      id: 11,
+      title: "Large Tree Pruning In Front Yard",
+      category: "Tree Pruning",
+      location: "Houston, TX",
+      image: "/assets/gallery/large-tree-pruning-front-yard.png",
+      description:
+        "Large oak tree pruned to remove deadwood and reduce the overextended branches to enhance its shape and reduce the risk of branch failure.",
+      imageClassName: "[&_img]:object-[center_35%]",
     },
   
     {
@@ -80,7 +108,7 @@ const Gallery = () => {
       category: "Forest Management",
       location: "Rosenberg, TX",
       image: "/assets/9b409e51-e319-4d2f-a64f-0db55d5b4e73.png",
-      description: "Large-scale forest management and selective clearing for residential developments"
+      description: "Large-scale forest management and selective clearing for residential developments."
     }
   ];
 
@@ -91,8 +119,6 @@ const Gallery = () => {
     : galleryImages.filter(img => img.category === selectedFilter);
 
   const activeImage = selectedImage !== null ? filteredImages[selectedImage] : null;
-  const overlayPaddingClasses = "pt-8 pb-16";
-  const overlayContentOffsetClasses = "mb-[13%] sm:mb-0";
 
   const openModal = (index: number) => {
     setSelectedImage(index);
@@ -114,12 +140,6 @@ const Gallery = () => {
 
   return (
     <Layout>
-      {/* SEO Meta Tags */}
-      <div className="hidden">
-        <h1>Houston Tree Service Gallery - Professional Tree Care Results</h1>
-        <meta name="description" content="View professional tree removal, trimming, and lot clearing work by M Rosales Tree Service throughout Houston and surrounding areas." />
-      </div>
-      
       <div className="container-custom section-padding">
         {/* Header */}
         <header className="text-center mb-12">
@@ -198,7 +218,7 @@ const Gallery = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="absolute top-[22%] sm:top-4 right-4 z-50 text-white hover:bg-white/20"
+                  className="absolute top-4 right-4 z-50 text-white hover:bg-white/20"
                   onClick={closeModal}
                 >
                   <X className="h-6 w-6" />
@@ -225,21 +245,25 @@ const Gallery = () => {
 
                 {/* Image */}
                 <div className="flex items-center justify-center w-full h-full sm:h-[85vh] p-4">
-                  <OptimizedImage
-                    src={activeImage.image}
-                    alt={activeImage.title}
-                    className="max-w-full max-h-full object-contain"
-                    lazy={false}
-                    priority={false}
-                  />
-                </div>
+                  <div className="relative inline-block leading-none">
+                    <img
+                      src={activeImage.image}
+                      alt={activeImage.title}
+                      className={
+                        "modalImageClassName" in activeImage && activeImage.modalImageClassName
+                          ? activeImage.modalImageClassName
+                          : "block object-contain w-[min(calc(100vw-2rem),56rem)] h-[min(calc(100vh-2rem),calc(85vh-2rem))]"
+                      }
+                    />
 
-                {/* Image Info */}
-                <div className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-4 sm:px-6 sm:p-6 text-white ${overlayPaddingClasses} flex flex-col justify-end`}>
-                  <div className={overlayContentOffsetClasses}>
-                    <h3 className="text-xl font-semibold mb-1">{activeImage.title}</h3>
-                    <p className="text-sm text-white/80 mb-2">{activeImage.location}</p>
-                    <p className="text-sm text-white/70">{activeImage.description}</p>
+                    {/* Image Info */}
+                    <div className="absolute bottom-0 left-0 right-0 text-white pointer-events-none">
+                      <div className="bg-gradient-to-t from-black/80 to-transparent px-4 sm:px-6 pt-6 pb-4">
+                        <h3 className="text-xl font-semibold mb-1">{activeImage.title}</h3>
+                        <p className="text-sm text-white/80 mb-2">{activeImage.location}</p>
+                        <p className="text-sm text-white/70 line-clamp-2">{activeImage.description}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
