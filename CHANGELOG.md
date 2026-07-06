@@ -18,6 +18,8 @@
 
 ### Hero, footer, and 404
 - Restored desktop **Get Free Estimate** button (`hidden sm:inline-flex`); mobile keeps separate `sm:hidden` button.
+- **Mobile hero image (final):** `w-full h-full`, no `scale`, `object-[34%_50%]` on mobile — full bleed (no gray border) and full truck visible. Desktop uses `sm:object-[center_50%]`, `lg:object-[center_48%]`.
+- **Hero regression note:** Commit `b16bc9f` accidentally set mobile image to 94% size (gray border) and a later revert used `scale-[1.35]` (too zoomed). Corrected in `77c6845`.
 - Footer: removed broken `/privacy`, `/terms`, `/sitemap` links → re-added working **Privacy** and **Sitemap** after pages were built.
 - NotFound “Browse Services” → `/#services` (no `/services` index route).
 

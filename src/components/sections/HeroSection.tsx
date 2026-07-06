@@ -10,6 +10,7 @@ const HeroSection = () => {
   const { businessName } = useBusinessName();
   return <section className="relative min-h-screen flex flex-col justify-start items-center overflow-hidden">
       <div className="absolute inset-0 z-0 bg-neutral-800 overflow-hidden">
+        {/* Mobile: full bleed, no scale. object-[34%_50%] frames truck and crew. Desktop crop unchanged. */}
         <img 
           src={heroImage} 
           alt={`${businessName} crew with chip truck and wood chipper`}
